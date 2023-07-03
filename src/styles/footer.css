@@ -1,0 +1,23 @@
+.footer {
+  color: #ffffff;
+}
+
+#google-app {
+  width: 9rem;
+  height: 3.2rem;
+}
+
+#appStore-app {
+  width: 8rem;
+}
+
+.bottom-footer {
+  font-size: 0.7rem;
+  background-color: #c21717;
+  padding: 0.7rem;
+  text-align: center;
+}
+
+.bottom-footer span {
+  font-family: fantasy;
+}

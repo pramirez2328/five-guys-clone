@@ -1,0 +1,36 @@
+.navbar {
+  background-color: #ffffff;
+}
+
+.navbar-toggler {
+  border: none;
+  padding: 0px;
+}
+.navbar .order-now {
+  border-radius: 0% !important;
+  font-size: 1rem;
+  background-color: #c21717 !important;
+}
+
+#logo {
+  width: 11rem;
+}
+
+.navbar-nav a {
+  color: #000000 !important;
+  font-weight: 500;
+}
+
+@media (max-width: 430px) {
+  .navbar .order-now {
+    font-size: 0.9rem;
+  }
+
+  a {
+    margin-top: 7px;
+  }
+
+  #logo {
+    width: 9rem;
+  }
+}
