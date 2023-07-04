@@ -5,7 +5,7 @@ import '../styles/home.css';
 
 const Home = () => {
   return (
-    <>
+    <div className='w-100'>
       <Header />
       <div id='main-section'>
         <div id='main-title'>
@@ -22,7 +22,7 @@ const Home = () => {
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 

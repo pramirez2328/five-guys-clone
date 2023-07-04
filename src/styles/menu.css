@@ -1,0 +1,49 @@
+.menu-subtitle {
+  font-weight: 300;
+  font-family: sans-serif;
+}
+
+.menu-image {
+  width: 100%;
+}
+
+.food-items img {
+  width: 7rem;
+  height: 5rem;
+}
+
+.food-items:hover {
+  cursor: pointer;
+  color: #c21717;
+}
+
+.btn.guide {
+  background-color: #c21717;
+  border-radius: 0;
+  border: solid 2px #c21717;
+}
+
+.btn.guide:hover {
+  background-color: #ffffff;
+  color: #c21717;
+  border-radius: 0;
+}
+
+@media (min-width: 881px) and (max-width: 1220px) {
+  .menu-image {
+    height: 11.5rem;
+  }
+}
+
+@media (min-width: 280px) and (max-width: 880px) {
+  .menu-image {
+    height: 6.9rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .food-items img {
+    width: 9rem;
+    height: 7rem;
+  }
+}

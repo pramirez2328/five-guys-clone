@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, Button } from 'reactstrap';
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavLink, NavItem, Button } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from '../assets/logo.png';
 import '../styles/header.css';
@@ -29,11 +29,11 @@ function Header() {
         <NavbarBrand href='/'>
           <img id='logo' src={logo} alt='logo' />
         </NavbarBrand>
-        <a href='/order'>
+        <NavLink href='/order'>
           <Button className='order-now' color='danger'>
             Order Now
           </Button>
-        </a>
+        </NavLink>
       </Navbar>
     </div>
   );
