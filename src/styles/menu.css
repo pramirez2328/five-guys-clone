@@ -10,11 +10,14 @@
 .food-items img {
   width: 7rem;
   height: 5rem;
+  transition: 0.3s ease-in-out;
 }
 
 .food-items:hover {
   cursor: pointer;
   color: #c21717;
+  transform: scale(1.2, 1.2);
+  transition: 0.3s ease-in-out;
 }
 
 .btn.guide {
@@ -37,7 +40,11 @@
 
 @media (min-width: 280px) and (max-width: 880px) {
   .menu-image {
-    height: 6.9rem;
+    display: none;
+  }
+  .mobile-image {
+    display: block !important;
+    width: 100%;
   }
 }
 

@@ -3,6 +3,7 @@ import Modal from '../components/Modal';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import menuImage from '../assets/menu.png';
+import mobileImage from '../assets/main.jpg';
 import { foodInformation } from '../util/foodInformation';
 import '../styles/menu.css';
 const Menu = () => {
@@ -12,6 +13,7 @@ const Menu = () => {
       <Row>
         <Col>
           <img className='menu-image' src={menuImage} alt='menu' />
+          <img className='mobile-image d-none' src={mobileImage} alt='menu' />
         </Col>
       </Row>
       <Row className='text-center mt-5'>

@@ -14,6 +14,7 @@ function Example(args) {
       <p className={classN}>{title}</p>
       <Modal isOpen={modal} toggle={toggle}>
         <ModalHeader toggle={toggle}>{currentItem.title}</ModalHeader>
+        <ModalBody>TYPES: {currentItem.type}</ModalBody>
         <ModalBody>{currentItem.description}</ModalBody>
         <ModalFooter>{currentItem.calories}</ModalFooter>
       </Modal>
