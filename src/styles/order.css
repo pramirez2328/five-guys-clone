@@ -1,0 +1,49 @@
+.brake-line {
+  margin-top: 3.8rem;
+  padding: 0.5rem;
+  background-color: #c21717;
+}
+#card img {
+  height: 5rem;
+}
+
+#card:hover {
+  cursor: pointer;
+  color: #c21717;
+  transform: scale(1.1, 1.1);
+  transition: 0.3s ease-in-out;
+}
+
+@media (min-width: 437px) and (max-width: 575px) {
+  #card {
+    width: 70%;
+    margin: auto;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 832px) {
+  .title {
+    font-size: small;
+  }
+  .price {
+    font-size: 0.95rem;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1335px) {
+  #card {
+    padding: 1rem 3rem !important;
+  }
+}
+
+@media (min-width: 1336px) and (max-width: 1600px) {
+  #card {
+    padding: 3rem 5rem !important;
+  }
+}
+
+@media (min-width: 1600px) {
+  #card {
+    padding: 4rem 7rem !important;
+  }
+}

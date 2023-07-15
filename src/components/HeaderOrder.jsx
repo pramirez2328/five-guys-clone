@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavLink, NavItem, Button } from 'reactstrap';
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavLink, NavItem } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import cart from '../assets/cart.png';
 import logo from '../assets/logo.png';
 import '../styles/header.css';
 
-function Header() {
+function HeaderOrder() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
@@ -29,14 +30,15 @@ function Header() {
         <NavbarBrand href='/'>
           <img id='logo' src={logo} alt='logo' />
         </NavbarBrand>
-        <NavLink href='/order'>
-          <Button className='order-now' color='danger'>
-            Order Now
-          </Button>
-        </NavLink>
+        <div className='cart-container d-flex justify-content-between align-items-center'>
+          <div id='cart-icon'>
+            <img className='w-100' src={cart} alt='cart icon' />
+          </div>
+          <h4 className='mt-2'>0</h4>
+        </div>
       </Navbar>
     </div>
   );
 }
 
-export default Header;
+export default HeaderOrder;
