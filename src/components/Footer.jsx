@@ -4,7 +4,7 @@ import appStoreIcon from '../assets/appStore.png';
 import '../styles/footer.css';
 const Footer = () => {
   return (
-    <footer className='footer bg-black'>
+    <footer className='footer bg-black mt-5'>
       <Container>
         <Row>
           <Col className='text-center my-5'>

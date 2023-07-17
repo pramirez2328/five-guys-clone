@@ -5,9 +5,8 @@ import cart from '../assets/cart.png';
 import logo from '../assets/logo.png';
 import '../styles/header.css';
 
-function HeaderOrder() {
+function HeaderOrder({ counter }) {
   const [isOpen, setIsOpen] = useState(false);
-
   const toggle = () => setIsOpen(!isOpen);
 
   return (
@@ -30,11 +29,11 @@ function HeaderOrder() {
         <NavbarBrand href='/'>
           <img id='logo' src={logo} alt='logo' />
         </NavbarBrand>
-        <div className='cart-container d-flex justify-content-between align-items-center'>
-          <div id='cart-icon'>
+        <div className='cart-container d-flex justify-content-end align-items-center'>
+          <div id='cart-icon' className='me-3'>
             <img className='w-100' src={cart} alt='cart icon' />
           </div>
-          <h4 className='mt-2'>0</h4>
+          <h4 className='mt-2 me-3'>{counter}</h4>
         </div>
       </Navbar>
     </div>

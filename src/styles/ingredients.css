@@ -1,0 +1,9 @@
+#add-more {
+  margin-top: 7rem !important;
+  display: flex;
+  justify-content: center;
+}
+
+#card-ingredients img {
+  height: 7rem;
+}

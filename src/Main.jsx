@@ -4,6 +4,8 @@ import Home from './pages/Home';
 import Order from './pages/Order';
 import Locations from './pages/Locations';
 import Menu from './pages/Menu';
+import Checkout from './pages/Checkout';
+import AddIngredients from './pages/AddIngredients';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-social/bootstrap-social.css';
@@ -16,16 +18,24 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: '/order',
-    element: <Order />,
-  },
-  {
     path: '/locations',
     element: <Locations />,
   },
   {
     path: '/menu',
     element: <Menu />,
+  },
+  {
+    path: '/checkout',
+    element: <Checkout />,
+  },
+  {
+    path: '/order',
+    element: <Order />,
+  },
+  {
+    path: '/order/ingredients/:id',
+    element: <AddIngredients />,
   },
 ]);
 
