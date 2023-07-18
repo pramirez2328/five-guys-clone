@@ -5,7 +5,6 @@ import Order from './pages/Order';
 import Locations from './pages/Locations';
 import Menu from './pages/Menu';
 import Checkout from './pages/Checkout';
-import AddIngredients from './components/AddIngredients';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-social/bootstrap-social.css';

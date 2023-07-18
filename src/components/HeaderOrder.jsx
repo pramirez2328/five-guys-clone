@@ -13,8 +13,8 @@ function HeaderOrder({ counter }) {
     <div className='header'>
       <Navbar expand='md' fixed='top' bg='white'>
         <NavbarToggler onClick={toggle} />
-        <Collapse className='flex-grow-0' isOpen={isOpen} navbar>
-          <Nav className='me-auto ' navbar>
+        <Collapse className='flex-grow-0 nav-links' isOpen={isOpen} navbar>
+          <Nav className='me-auto w-100' navbar>
             <NavItem>
               <NavLink href='/'>Home</NavLink>
             </NavItem>
