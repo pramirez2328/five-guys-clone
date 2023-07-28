@@ -11,7 +11,7 @@ const ordersSlice = createSlice({
     addItem: (state, action) => {
       const newItem = {
         itemNumber: state.ordersArray.length + 1,
-        ...action.payload,
+        item: [...action.payload],
       };
       state.ordersArray.push(newItem);
     },
@@ -23,4 +23,10 @@ export const { addItem } = ordersSlice.actions;
 
 export const selectAllorders = (state) => {
   return state.orders.ordersArray;
+};
+
+export const selectCurrentItem = (state) => {
+  const arr = state.orders.ordersArray;
+  console.log(arr);
+  return arr[arr.length - 1];
 };

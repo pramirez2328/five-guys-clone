@@ -1,6 +1,10 @@
+import { useSelector } from 'react-redux';
 import { Row, Card, CardBody, Button, CardImg, CardTitle, CardText } from 'reactstrap';
+import { Link } from 'react-router-dom';
+import { selectAllFood } from '../foodSlice';
 
-const FoodOptions = ({ food, handleAddItem }) => {
+const FoodOptions = () => {
+  const food = useSelector(selectAllFood);
   return (
     <Row className='d-flex justify-content-evenly align-items-center w-75 m-auto'>
       {food.map((item) => {
@@ -12,9 +16,9 @@ const FoodOptions = ({ food, handleAddItem }) => {
                 <CardTitle className='title mt-2'>{item.title}</CardTitle>
                 <CardText className='price b'>$ {item.price}</CardText>
               </CardBody>
-              <Button className='btn btn-danger' onClick={() => handleAddItem(item.id)}>
-                ADD
-              </Button>
+              <Link to={`../order/${item.title.toLowerCase()}`} state={item.id}>
+                <Button className='btn btn-danger'>ADD</Button>
+              </Link>
             </Card>
           </div>
         );

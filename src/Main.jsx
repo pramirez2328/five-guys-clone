@@ -3,7 +3,7 @@ import Home from './pages/Home';
 import Order from './pages/Order';
 import Locations from './pages/Locations';
 import Menu from './pages/Menu';
-import AddIngredients from './components/AddIngredients';
+import AddIngredients from './pages/AddIngredients';
 import Checkout from './pages/Checkout';
 import { store } from './store';
 import { Provider } from 'react-redux';
