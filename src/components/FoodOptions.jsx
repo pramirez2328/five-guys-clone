@@ -1,10 +1,9 @@
 import { Row, Card, CardBody, Button, CardImg, CardTitle, CardText } from 'reactstrap';
-import { foodInformation } from '../util/foodInformation';
 
-const FoodOptions = ({ handleCounter }) => {
+const FoodOptions = ({ food, handleAddItem }) => {
   return (
     <Row className='d-flex justify-content-evenly align-items-center w-75 m-auto'>
-      {foodInformation.map((item) => {
+      {food.map((item) => {
         return (
           <div key={item.id} id='card' className='p-4 col-sm-6 col-md-4 p-md-3 p-lg-5 mt-4'>
             <Card className='p-3'>
@@ -13,7 +12,7 @@ const FoodOptions = ({ handleCounter }) => {
                 <CardTitle className='title mt-2'>{item.title}</CardTitle>
                 <CardText className='price b'>$ {item.price}</CardText>
               </CardBody>
-              <Button className='btn btn-danger' onClick={() => handleCounter(item.id)}>
+              <Button className='btn btn-danger' onClick={() => handleAddItem(item.id)}>
                 ADD
               </Button>
             </Card>
