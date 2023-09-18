@@ -11,7 +11,7 @@ const ordersSlice = createSlice({
     addItem: (state, action) => {
       const newItem = {
         itemNumber: state.ordersArray.length + 1,
-        item: [...action.payload],
+        ...action.payload,
       };
       state.ordersArray.push(newItem);
     },
