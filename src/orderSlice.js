@@ -15,11 +15,14 @@ const ordersSlice = createSlice({
       };
       state.ordersArray.push(newItem);
     },
+    removeAll: (state) => {
+      state.ordersArray = [];
+    },
   },
 });
 
 export const ordersReducer = ordersSlice.reducer;
-export const { addItem } = ordersSlice.actions;
+export const { addItem, removeAll } = ordersSlice.actions;
 
 export const selectAllorders = (state) => {
   return state.orders.ordersArray;
