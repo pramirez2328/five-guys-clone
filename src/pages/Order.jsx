@@ -11,7 +11,9 @@ const Order = () => {
         <HeaderOrder />
       </Row>
       <Row className='brake-line' />
-      <Row>{/* <p className='m-0'>ITEM ADDED!</p> */}</Row>
+      {/* <Row>
+        <p className='m-0'>ITEM ADDED!</p>
+      </Row> */}
       <FoodOptions />
       <Row>
         <Footer />

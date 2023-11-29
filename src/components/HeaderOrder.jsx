@@ -1,13 +1,16 @@
 import { useState } from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavLink, NavItem } from 'reactstrap';
+import { selectAllOrders } from '../orderSlice';
+import { useSelector } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import cart from '../assets/cart.png';
 import logo from '../assets/logo.png';
 import '../styles/header.css';
 
-function HeaderOrder({ counter }) {
+function HeaderOrder() {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
+  let items = useSelector(selectAllOrders);
 
   return (
     <div className='header'>
@@ -33,7 +36,7 @@ function HeaderOrder({ counter }) {
           <div id='cart-icon' className='me-3'>
             <img className='w-100' src={cart} alt='cart icon' />
           </div>
-          <h4 className='mt-2 me-3'>{counter}</h4>
+          <h4 className='mt-2 me-3'>{items.length}</h4>
         </div>
       </Navbar>
     </div>

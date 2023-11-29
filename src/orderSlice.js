@@ -24,7 +24,7 @@ const ordersSlice = createSlice({
 export const ordersReducer = ordersSlice.reducer;
 export const { addItem, removeAll } = ordersSlice.actions;
 
-export const selectAllorders = (state) => {
+export const selectAllOrders = (state) => {
   return state.orders.ordersArray;
 };
 
