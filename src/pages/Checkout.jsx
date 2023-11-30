@@ -28,6 +28,10 @@ const Checkout = () => {
                     <span className='title-info'>{order.title.slice(0, order.title.length - 1)}</span>
                   </p>
                   <p>${order.price}</p>
+                  <div>
+                    <Button className='btn btn-danger me-3'>Remove</Button>
+                    <Button className='btn btn-warning'>Update</Button>
+                  </div>
                 </div>
 
                 <ul className='ingredient-list'>
@@ -46,9 +50,14 @@ const Checkout = () => {
         </Row>
         <Row>
           <Col>
-            <p>Subtotal: {total}</p>
-            <p>Tax: {(total * 0.12).toFixed(2)}</p>
-            <p>Total: {(total + total * 0.12).toFixed(2)}</p>
+            <div className='d-flex flex-column align-items-end'>
+              <p>Subtotal: {total}</p>
+              <p>Tax: {(total * 0.12).toFixed(2)}</p>
+              <p className='fw-bold' style={{ color: '#AA0000' }}>
+                Total: {(total + total * 0.12).toFixed(2)}
+              </p>
+            </div>
+
             <Button type='button' className='btn btn-danger' onClick={handleRemoveAll}>
               Remove items
             </Button>

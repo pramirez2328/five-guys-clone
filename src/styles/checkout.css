@@ -2,12 +2,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   height: auto;
+  width: 50%;
+  margin-left: 35%;
 }
 
 .food-item {
-  width: 30%;
   margin: auto;
   display: flex;
   flex-direction: column;
