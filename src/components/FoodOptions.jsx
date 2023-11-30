@@ -7,8 +7,8 @@ import { addItem } from '../orderSlice';
 const FoodOptions = () => {
   const food = useSelector(selectAllFood);
   const dispatch = useDispatch();
-  const handleAddItem = (id, title, price) => {
-    const newItem = { id, title, price };
+  const handleAddItem = (id, title, price, options) => {
+    const newItem = { id, title, price, options };
     dispatch(addItem(newItem));
   };
 
@@ -24,7 +24,10 @@ const FoodOptions = () => {
                 <CardText className='price b'>$ {item.price}</CardText>
               </CardBody>
               <Link to={`../order/${item.title.toLowerCase()}`} state={item.id}>
-                <Button className='btn btn-danger w-100' onClick={() => handleAddItem(item.id, item.title, item.price)}>
+                <Button
+                  className='btn btn-danger w-100'
+                  onClick={() => handleAddItem(item.id, item.title, item.price, item.options)}
+                >
                   ADD
                 </Button>
               </Link>
