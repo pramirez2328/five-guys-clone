@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import HeaderOrder from '../components/HeaderOrder';
 import Footer from '../components/Footer';
 import '../styles/checkout.css';
-import { removeAll, selectAllOrders, totalCost } from '../orderSlice';
+import { selectAllOrders, totalCost } from '../orderSlice';
 import main from '../assets/main.jpg';
 import CheckoutInfo from '../components/checkoutInfo';
 
@@ -11,9 +11,7 @@ const Checkout = () => {
   const dispatch = useDispatch();
   const orders = useSelector(selectAllOrders);
   const total = useSelector(totalCost);
-  const handleRemoveAll = () => {
-    dispatch(removeAll());
-  };
+
   return (
     <div style={{ height: '100vh' }}>
       <HeaderOrder />
@@ -53,16 +51,12 @@ const Checkout = () => {
           <Col>
             <div className='d-flex flex-column align-items-end'>
               <h3 className='fw-bold'>Order Summary</h3>
-              <p>Subtotal: {total}</p>
+              <p>Subtotal: {total.toFixed(2)}</p>
               <p>Tax: {(total * 0.12).toFixed(2)}</p>
               <p className='fw-bold' style={{ color: '#AA0000' }}>
                 Total: {(total + total * 0.12).toFixed(2)}
               </p>
             </div>
-
-            <Button type='button' className='btn btn-danger' onClick={handleRemoveAll}>
-              Remove items
-            </Button>
           </Col>
         </Row>
       </div>

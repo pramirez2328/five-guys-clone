@@ -1,10 +1,10 @@
 const CheckoutInfo = () => {
   return (
     <div className='col-md-8 m-auto mb-4'>
-      <h2>Payment Method</h2>
+      <h4 className='text-muted'>Payment Method</h4>
 
       <form className='row g-3'>
-        <div className='col-md-6'>
+        <div className='col-md-12'>
           <label htmlFor='username' className='form-label'>
             Name
           </label>
@@ -18,7 +18,7 @@ const CheckoutInfo = () => {
           <input type='email' className='form-control' id='inputEmail4' />
         </div>
 
-        <div className='col-md-12'>
+        <div className='col-md-6'>
           <label htmlFor='credit-card' className='form-label'>
             Credit Card
           </label>
@@ -33,9 +33,9 @@ const CheckoutInfo = () => {
         </div>
         <div className='col-12'>
           <label htmlFor='inputAddress2' className='form-label'>
-            Address 2
+            Floor
           </label>
-          <input type='text' className='form-control' id='inputAddress2' placeholder='Apartment, studio, or floor' />
+          <input type='text' className='form-control' id='inputAddress2' placeholder='Enter Apartment level' />
         </div>
         <div className='col-md-6'>
           <label htmlFor='inputCity' className='form-label'>
@@ -59,7 +59,7 @@ const CheckoutInfo = () => {
           <input type='text' className='form-control' id='inputZip' />
         </div>
         <div className='col-12'>
-          <button type='submit' className='btn btn-primary'>
+          <button type='submit' className='btn btn-success'>
             PLACE ORDER
           </button>
         </div>
