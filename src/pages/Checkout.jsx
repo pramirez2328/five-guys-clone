@@ -5,6 +5,7 @@ import Footer from '../components/Footer';
 import '../styles/checkout.css';
 import { removeAll, selectAllOrders, totalCost } from '../orderSlice';
 import main from '../assets/main.jpg';
+import CheckoutInfo from '../components/checkoutInfo';
 
 const Checkout = () => {
   const dispatch = useDispatch();
@@ -51,6 +52,7 @@ const Checkout = () => {
         <Row>
           <Col>
             <div className='d-flex flex-column align-items-end'>
+              <h3 className='fw-bold'>Order Summary</h3>
               <p>Subtotal: {total}</p>
               <p>Tax: {(total * 0.12).toFixed(2)}</p>
               <p className='fw-bold' style={{ color: '#AA0000' }}>
@@ -64,6 +66,12 @@ const Checkout = () => {
           </Col>
         </Row>
       </div>
+      <Row>
+        <Col>
+          <CheckoutInfo />
+        </Col>
+      </Row>
+
       <Footer />
     </div>
   );
