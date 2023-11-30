@@ -1,6 +1,38 @@
 #checkout-container {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  height: 100%;
+  height: auto;
+}
+
+.food-item {
+  width: 30%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-star;
+  justify-content: flex-end;
+}
+
+.food-info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.food-info p {
+  margin: 0;
+}
+
+.title-info {
+  font-weight: 900;
+  color: rgb(187, 1, 1);
+}
+
+.checkout-main-img {
+  width: 100%;
+  height: 40%;
+  margin-bottom: 2em;
 }

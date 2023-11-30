@@ -1,9 +1,6 @@
 import { Row, Button, NavLink } from 'reactstrap';
 import Ingredients from '../components/Ingredients';
 import HeaderOrder from '../components/HeaderOrder';
-import { selectCurrentItemById } from '../foodSlice';
-import { useLocation } from 'react-router-dom';
-import { shallowEqual, useSelector } from 'react-redux';
 import Footer from '../components/Footer';
 import '../styles/ingredients.css';
 
@@ -25,7 +22,7 @@ const AddIngredients = () => {
       </Row>
       <Row id='checkout' className='w-25 m-auto'>
         <NavLink href='/checkout'>
-          <Button className='btn btn-dark w-100'>CHECK OUT</Button>
+          <Button className='btn btn-dark w-100 mb-5'>CHECK OUT</Button>
         </NavLink>
       </Row>
       <Row>

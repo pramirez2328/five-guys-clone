@@ -24,7 +24,6 @@ const Ingredients = () => {
     };
     dispatch(addIngredient(newCurrent));
   };
-  console.log(currentItem);
 
   return currentItem.options.map((item) => {
     return (

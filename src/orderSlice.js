@@ -37,3 +37,12 @@ export const selectCurrentItem = (state) => {
   const arr = state.orders.ordersArray;
   return arr[arr.length - 1];
 };
+
+export const totalCost = (state) => {
+  const arr = state.orders.ordersArray;
+  let total = 0;
+  for (let order of arr) {
+    total += order.price;
+  }
+  return total;
+};
