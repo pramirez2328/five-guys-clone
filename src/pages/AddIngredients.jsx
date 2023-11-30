@@ -8,10 +8,6 @@ import Footer from '../components/Footer';
 import '../styles/ingredients.css';
 
 const AddIngredients = () => {
-  const location = useLocation();
-  const id = location.state;
-  const currentItem = useSelector(selectCurrentItemById(id), shallowEqual);
-
   return (
     <div className='order-container'>
       <Row>
@@ -25,7 +21,7 @@ const AddIngredients = () => {
         </NavLink>
       </Row>
       <Row className='col-md-9 col-xl-6 m-auto'>
-        <Ingredients currentItem={currentItem} />
+        <Ingredients />
       </Row>
       <Row id='checkout' className='w-25 m-auto'>
         <NavLink href='/checkout'>
