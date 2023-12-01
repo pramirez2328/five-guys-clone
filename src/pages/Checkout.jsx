@@ -20,6 +20,15 @@ const Checkout = () => {
     dispatch(updateItem(id));
   };
 
+  const titles = {
+    BURGERS: 'BURGER',
+    DOGS: 'DOG',
+    DRINKS: 'DRINK',
+    FRIES: 'FRIES',
+    MILKSHAKES: 'MILKSHAKE',
+    SANDWICHES: 'SANDWICH',
+  };
+
   return (
     <div style={{ height: '100vh' }}>
       <HeaderOrder />
@@ -32,8 +41,7 @@ const Checkout = () => {
                 <div className='food-info'>
                   <div className='d-flex w-50 justify-content-between'>
                     <p>
-                      {order.itemNumber}.-{' '}
-                      <span className='title-info'>{order.title.slice(0, order.title.length - 1)}</span>
+                      <span className='title-info'>{titles[order.title]}</span>
                     </p>
                     <p>${order.price}</p>
                   </div>
