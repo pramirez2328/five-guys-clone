@@ -15,8 +15,10 @@ const ordersSlice = createSlice({
       };
       state.ordersArray.push(newItem);
     },
-    removeAll: (state) => {
-      state.ordersArray = [];
+    removeItem: (state, action) => {
+      const id = action.payload;
+      const newArr = state.ordersArray.filter((i) => i.id !== id);
+      state.ordersArray = newArr;
     },
     addIngredient: (state, action) => {
       const id = action.payload.id;
@@ -27,15 +29,15 @@ const ordersSlice = createSlice({
 });
 
 export const ordersReducer = ordersSlice.reducer;
-export const { addItem, removeAll, addIngredient } = ordersSlice.actions;
+export const { addItem, removeItem, updateItem, addIngredient } = ordersSlice.actions;
 
 export const selectAllOrders = (state) => {
   return state.orders.ordersArray;
 };
 
-export const selectCurrentItem = (state) => {
-  const arr = state.orders.ordersArray;
-  return arr[arr.length - 1];
+export const selectCurrentItem = (state, id) => {
+  const current = state.orders.ordersArray.find((i) => i.id == id);
+  return current;
 };
 
 export const totalCost = (state) => {

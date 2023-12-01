@@ -23,7 +23,7 @@ const FoodOptions = () => {
                 <CardTitle className='title mt-2'>{item.title}</CardTitle>
                 <CardText className='price b'>$ {item.price}</CardText>
               </CardBody>
-              <Link to={`../order/${item.title.toLowerCase()}`}>
+              <Link to={`../order/${item.title.toLowerCase()}_${item.id}`}>
                 <Button
                   className='btn btn-danger w-100'
                   onClick={() => handleAddItem(item.id, item.title, item.price, item.options)}

@@ -48,7 +48,7 @@ const CheckoutInfo = () => {
             State
           </label>
           <select id='inputState' className='form-select'>
-            <option selected>Choose...</option>
+            <option>Choose...</option>
             <option>...</option>
           </select>
         </div>

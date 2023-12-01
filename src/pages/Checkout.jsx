@@ -1,9 +1,10 @@
 import { Col, Row, Button } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import HeaderOrder from '../components/HeaderOrder';
 import Footer from '../components/Footer';
 import '../styles/checkout.css';
-import { selectAllOrders, totalCost } from '../orderSlice';
+import { removeItem, updateItem, selectAllOrders, totalCost } from '../orderSlice';
 import main from '../assets/main.jpg';
 import CheckoutInfo from '../components/checkoutInfo';
 
@@ -11,6 +12,13 @@ const Checkout = () => {
   const dispatch = useDispatch();
   const orders = useSelector(selectAllOrders);
   const total = useSelector(totalCost);
+  const handleRemove = (id) => {
+    dispatch(removeItem(id));
+  };
+
+  const handleUpdated = (id) => {
+    dispatch(updateItem(id));
+  };
 
   return (
     <div style={{ height: '100vh' }}>
@@ -22,14 +30,23 @@ const Checkout = () => {
             {orders.map((order) => (
               <div className='food-item' key={order.itemNumber}>
                 <div className='food-info'>
-                  <p>
-                    {order.itemNumber}.-{' '}
-                    <span className='title-info'>{order.title.slice(0, order.title.length - 1)}</span>
-                  </p>
-                  <p>${order.price}</p>
+                  <div className='d-flex w-50 justify-content-between'>
+                    <p>
+                      {order.itemNumber}.-{' '}
+                      <span className='title-info'>{order.title.slice(0, order.title.length - 1)}</span>
+                    </p>
+                    <p>${order.price}</p>
+                  </div>
+
                   <div>
-                    <Button className='btn btn-danger me-3'>Remove</Button>
-                    <Button className='btn btn-warning'>Update</Button>
+                    <Button className='btn btn-danger me-3' onClick={() => handleRemove(order.id)}>
+                      Remove
+                    </Button>
+                    <Link to={`../order/${order.title.toLowerCase()}_${order.id}`}>
+                      <Button className='btn btn-warning' onClick={() => handleUpdated(order.id)}>
+                        Update
+                      </Button>
+                    </Link>
                   </div>
                 </div>
 

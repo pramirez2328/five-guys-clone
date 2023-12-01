@@ -1,10 +1,13 @@
 import { Button, Col, Card } from 'reactstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { addIngredient, selectCurrentItem } from '../orderSlice';
+import { useParams } from 'react-router-dom';
 
 const Ingredients = () => {
   const dispatch = useDispatch();
-  const currentItem = useSelector(selectCurrentItem);
+  const paramsId = useParams();
+  const id = paramsId['id'].split('_').pop();
+  const currentItem = useSelector((state) => selectCurrentItem(state, id));
 
   const handleIngredients = (currentIngredient) => {
     const tempOptions = currentItem.options.filter((i) => i.id !== currentIngredient.id);
