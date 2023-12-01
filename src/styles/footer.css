@@ -1,5 +1,10 @@
+:root {
+  --color-red: #ad0101;
+}
+
 .footer {
   color: #ffffff;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 #google-app {
@@ -13,7 +18,7 @@
 
 .bottom-footer {
   font-size: 0.6rem;
-  background-color: #c21717;
+  background-color: var(--color-red);
   padding: 0.6rem;
   text-align: center;
 }

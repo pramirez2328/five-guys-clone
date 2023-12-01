@@ -87,9 +87,7 @@ const Checkout = () => {
                   <h3 className='fw-bold'>Order Summary</h3>
                   <p>Subtotal: {total.toFixed(2)}</p>
                   <p>Tax: {(total * 0.12).toFixed(2)}</p>
-                  <p className='fw-bold' style={{ color: '#AA0000' }}>
-                    Total: {(total + total * 0.12).toFixed(2)}
-                  </p>
+                  <p className='fw-bold total-price'>Total: {(total + total * 0.12).toFixed(2)}</p>
                 </div>
               </Col>
             </Row>

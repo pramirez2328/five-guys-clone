@@ -1,3 +1,7 @@
+:root {
+  --color-red: #ad0101;
+}
+
 #cart-icon {
   width: 27px;
 }
@@ -21,11 +25,13 @@
 .navbar .order-now {
   border-radius: 0% !important;
   font-size: 1rem;
-  background-color: #c21717 !important;
+  background-color: var(--color-red);
 }
 
-#logo {
-  width: 11rem;
+.logo {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 900;
+  color: var(--color-red);
 }
 
 .navbar-nav a {

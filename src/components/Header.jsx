@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavLink, NavItem, Button } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import logo from '../assets/logo.png';
 import '../styles/header.css';
 
 function Header() {
@@ -27,7 +26,7 @@ function Header() {
           </Nav>
         </Collapse>
         <NavbarBrand href='/'>
-          <img id='logo' src={logo} alt='logo' />
+          <h1 className='logo'>FOUR GUYS</h1>
         </NavbarBrand>
         <NavLink href='/order'>
           <Button className='order-now' color='danger'>

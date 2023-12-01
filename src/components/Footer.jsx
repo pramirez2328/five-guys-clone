@@ -8,7 +8,7 @@ const Footer = () => {
       <Container>
         <Row>
           <Col className='text-center my-5'>
-            <h1>FIVE GUYS</h1>
+            <h1>FOUR GUYS</h1>
             <a className='btn btn-social-icon btn-instagram mx-1' href='http://instagram.com/'>
               <i className='fa fa-instagram' />
             </a>

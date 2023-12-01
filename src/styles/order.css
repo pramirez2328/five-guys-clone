@@ -1,7 +1,11 @@
+:root {
+  color: #ad0101;
+}
+
 .brake-line {
   margin-top: 3.8rem;
   padding: 0.5rem;
-  background-color: #c21717;
+  background-color: var(--color-red);
 }
 
 #card img {
@@ -20,7 +24,7 @@
 
 #card:hover {
   cursor: pointer;
-  color: #c21717;
+  color: var(--color-red);
   transform: scale(1.1, 1.1);
   transition: 0.3s ease-in-out;
 }

@@ -1,3 +1,7 @@
+:root {
+  --color-red: #ad0101;
+}
+
 .food-item {
   margin: auto;
   display: flex;
@@ -19,11 +23,15 @@
 
 .title-info {
   font-weight: 900;
-  color: rgb(187, 1, 1);
+  color: var(--color-red);
 }
 
 .checkout-main-img {
   width: 100%;
   height: 40%;
   margin-bottom: 2em;
+}
+
+.total-price {
+  color: var(--color-red);
 }

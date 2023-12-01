@@ -1,3 +1,7 @@
+:root {
+  --color-red: #ad0101;
+}
+
 #main-section {
   background: url('../assets/main.jpg');
   background-repeat: no-repeat;
@@ -11,7 +15,7 @@
 .order-now {
   border-radius: 0% !important;
   font-size: 1rem;
-  background-color: #c21717 !important;
+  background-color: var(--color-red) !important;
   border: #ffffff 3px solid;
   padding: 0.5rem 2rem 0.5rem 2rem;
   color: #ffffff;
