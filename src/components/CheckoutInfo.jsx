@@ -1,6 +1,6 @@
-const CheckoutInfo = () => {
+const CheckoutInfo = ({ handlePlaceOrder }) => {
   return (
-    <div className='col-md-8 m-auto mb-4'>
+    <div className='col-md-12 m-auto mb-4'>
       <h4 className='text-muted'>Payment Method</h4>
 
       <form className='row g-3'>
@@ -59,7 +59,7 @@ const CheckoutInfo = () => {
           <input type='text' className='form-control' id='inputZip' />
         </div>
         <div className='col-12'>
-          <button type='submit' className='btn btn-success'>
+          <button type='submit' className='btn btn-success' onClick={handlePlaceOrder}>
             PLACE ORDER
           </button>
         </div>
