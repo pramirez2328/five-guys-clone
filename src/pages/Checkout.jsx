@@ -5,15 +5,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import HeaderOrder from '../components/HeaderOrder';
 import Footer from '../components/Footer';
 import '../styles/checkout.css';
-import { removeItem, updateItem, selectAllOrders, totalCost } from '../orderSlice';
+import { removeItem, updateItem, selectAllOrders, totalCost, removeAllItems } from '../orderSlice';
 import main from '../assets/main.jpg';
 import CheckoutInfo from '../components/checkoutInfo';
-import Thankyou from '../components/thankyou';
+import Thankyou from '../components/Thankyou';
 
 const Checkout = () => {
   const [placeOrder, setPlaceOrder] = useState(false);
-  const dispatch = useDispatch();
+  const [finalOrder, setFinalOrder] = useState([]);
   const orders = useSelector(selectAllOrders);
+  const dispatch = useDispatch();
+
   const total = useSelector(totalCost);
   const handleRemove = (id) => {
     dispatch(removeItem(id));
@@ -23,8 +25,10 @@ const Checkout = () => {
     dispatch(updateItem(id));
   };
 
-  const handlePlaceOrder = () => {
+  const handlePlaceOrder = (orders) => {
     setPlaceOrder(!placeOrder);
+    setFinalOrder(orders);
+    dispatch(removeAllItems([]));
   };
 
   const titles = {
@@ -94,7 +98,7 @@ const Checkout = () => {
 
             <Row>
               <Col>
-                <CheckoutInfo handlePlaceOrder={handlePlaceOrder} />
+                <CheckoutInfo handlePlaceOrder={() => handlePlaceOrder(orders)} />
               </Col>
             </Row>
           </div>
@@ -103,7 +107,7 @@ const Checkout = () => {
       </div>
     );
   } else {
-    return <Thankyou />;
+    return <Thankyou orders={finalOrder} />;
   }
 };
 export default Checkout;

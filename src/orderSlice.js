@@ -25,11 +25,15 @@ const ordersSlice = createSlice({
       const tempArr = state.ordersArray.filter((i) => i.id !== id);
       state.ordersArray = [...tempArr, action.payload];
     },
+    removeAllItems: (state, action) => {
+      console.log(action.payload);
+      state.ordersArray = action.payload;
+    },
   },
 });
 
 export const ordersReducer = ordersSlice.reducer;
-export const { addItem, removeItem, updateItem, addIngredient } = ordersSlice.actions;
+export const { addItem, removeItem, updateItem, addIngredient, removeAllItems } = ordersSlice.actions;
 
 export const selectAllOrders = (state) => {
   return state.orders.ordersArray;
