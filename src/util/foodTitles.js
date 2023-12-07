@@ -1,0 +1,8 @@
+export const titles = {
+  BURGERS: 'BURGER',
+  DOGS: 'HOT DOG',
+  DRINKS: 'DRINK',
+  FRIES: 'FRIES',
+  MILKSHAKES: 'MILKSHAKE',
+  SANDWICHES: 'SANDWICH',
+};

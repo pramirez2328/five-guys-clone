@@ -9,6 +9,7 @@ import { removeItem, updateItem, selectAllOrders, totalCost, removeAllItems } fr
 import main from '../assets/main.jpg';
 import CheckoutInfo from '../components/checkoutInfo';
 import Thankyou from '../components/Thankyou';
+import { titles } from '../util/foodTitles';
 
 const Checkout = () => {
   const [placeOrder, setPlaceOrder] = useState(false);
@@ -29,15 +30,6 @@ const Checkout = () => {
     setPlaceOrder(!placeOrder);
     setFinalOrder(orders);
     dispatch(removeAllItems([]));
-  };
-
-  const titles = {
-    BURGERS: 'BURGER',
-    DOGS: 'DOG',
-    DRINKS: 'DRINK',
-    FRIES: 'FRIES',
-    MILKSHAKES: 'MILKSHAKE',
-    SANDWICHES: 'SANDWICH',
   };
 
   if (!placeOrder) {

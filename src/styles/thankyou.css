@@ -1,0 +1,12 @@
+:root {
+  --color-red: #ad0101;
+}
+
+#thank-you-message {
+  font-weight: bold;
+  color: var(--color-red);
+}
+
+#order-item {
+  color: var(--color-red);
+}
