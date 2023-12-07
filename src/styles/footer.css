@@ -1,10 +1,10 @@
 :root {
   --color-red: #ad0101;
+  --color-white: rgb(255, 255, 255);
 }
 
 .footer {
-  color: #ffffff;
-  font-family: 'Times New Roman', Times, serif;
+  color: var(--color-white);
 }
 
 #google-app {
@@ -21,8 +21,14 @@
   background-color: var(--color-red);
   padding: 0.6rem;
   text-align: center;
+  color: var(--color-white);
 }
 
 .bottom-footer span {
   font-family: fantasy;
+}
+
+#heart {
+  color: var(--color-red);
+  font-size: 1.1em;
 }

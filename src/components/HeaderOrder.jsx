@@ -4,7 +4,6 @@ import { selectAllOrders } from '../orderSlice';
 import { useSelector } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import cart from '../assets/cart.png';
-import logo from '../assets/logo.png';
 import '../styles/header.css';
 
 function HeaderOrder() {
@@ -30,7 +29,7 @@ function HeaderOrder() {
           </Nav>
         </Collapse>
         <NavbarBrand href='/'>
-          <img id='logo' src={logo} alt='logo' />
+          <h1 className='logo'>FOUR GUYS</h1>
         </NavbarBrand>
         <div className='cart-container d-flex justify-content-end align-items-center'>
           <div id='cart-icon' className='me-3'>

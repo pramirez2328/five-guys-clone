@@ -4,7 +4,7 @@ import appStoreIcon from '../assets/appStore.png';
 import '../styles/footer.css';
 const Footer = () => {
   return (
-    <footer className='footer bg-black'>
+    <footer className='footer bg-black '>
       <Container>
         <Row>
           <Col className='text-center my-5'>
@@ -34,7 +34,7 @@ const Footer = () => {
         </Row>
       </Container>
       <h6 className='bottom-footer mb-0'>
-        Proudly made by <span>Pedro Ramirez</span> &copy; 2023
+        Made with <span id='heart'>&#x1F49A;</span> by Pedro Ramirez
       </h6>
     </footer>
   );
