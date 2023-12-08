@@ -18,6 +18,10 @@ const Locations = () => {
   }, []);
 
   useEffect(() => {
+    handleSearch();
+  }, [query]);
+
+  useEffect(() => {
     findClosestPlace();
   }, [userLocation, result]);
 
@@ -104,27 +108,21 @@ const Locations = () => {
     }
   };
 
-  const handleButtonClick = () => {
-    // Trigger the search or find the closest place when the button is clicked
-    handleSearch();
-  };
-
   return (
     <div>
       <Header />
       <div id='location-container' className='col-md-8 mx-auto'>
-        <div>
-          <h3>Find the closest place</h3>
-          <label className='text-muted'>Enter your zip code</label>
+        <div id='location-input'>
+          <h3 id='search-title'>Find the closest place</h3>
+          <label className='text-muted'>Enter zip code</label>
           <br />
           <input type='text' value={query} onChange={(e) => setQuery(e.target.value)} placeholder='zip code' />
-          <button onClick={handleButtonClick}>Search</button>
         </div>
 
         <div>
           {result && (
             <div>
-              <h2>Search Results</h2>
+              <h3 className='text-muted'>Search Results</h3>
               <ul>
                 {result.map((location) => (
                   <li key={location.place_id}>
@@ -137,7 +135,7 @@ const Locations = () => {
 
           {closestPlace && (
             <div>
-              <h2>Closest Place</h2>
+              <h3 className='text-muted'>Closest Place</h3>
               <p>
                 {closestPlace.display_name} - ({closestPlace.lat}, {closestPlace.lon})
               </p>
