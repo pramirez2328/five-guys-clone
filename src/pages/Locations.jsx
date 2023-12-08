@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import 'leaflet/dist/leaflet.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import '../styles/locations.css';
@@ -11,7 +10,41 @@ const Locations = () => {
   const [result, setResult] = useState('');
   const [userLocation, setUserLocation] = useState('');
   const [closestPlace, setClosestPlace] = useState('');
+  const [closestPlaceCoordinates, setClosestPlaceCoordinates] = useState(null);
   const fiveGuys = 'five guys ';
+
+  useEffect(() => {
+    getUserLocation();
+  }, []);
+
+  useEffect(() => {
+    findClosestPlace();
+  }, [userLocation, result]);
+
+  useEffect(() => {
+    // Check if the map container exists
+    const mapContainer = document.getElementById('map');
+
+    // Only initialize the map if it doesn't already exist
+    if (mapContainer && !mapContainer._leaflet_id && closestPlaceCoordinates) {
+      const map = L.map('map').setView(closestPlaceCoordinates, 13);
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      }).addTo(map);
+
+      // Add a marker for the closest place when the coordinates are available
+      if (closestPlaceCoordinates) {
+        L.marker(closestPlaceCoordinates).addTo(map);
+      }
+
+      return () => {
+        if (map) {
+          map.remove();
+        }
+      };
+    }
+  }, [closestPlaceCoordinates]);
 
   const handleSearch = async () => {
     try {
@@ -54,18 +87,6 @@ const Locations = () => {
     }
   };
 
-  useEffect(() => {
-    // Create a map and set its initial view
-    const map = L.map('map').setView([51.505, -0.09], 13);
-
-    // Add a tile layer (you may want to replace this with your own tile layer)
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-  }, []);
-
-  useEffect(() => {
-    getUserLocation();
-  }, []);
-
   const findClosestPlace = async () => {
     if (userLocation && result && result.length > 0) {
       const closestApiUrl = `https://nominatim.openstreetmap.org/search?format=json&q=${fiveGuys}${query}&lat=${userLocation.latitude}&lon=${userLocation.longitude}&limit=1`;
@@ -75,6 +96,7 @@ const Locations = () => {
         const data = await response.json();
         if (data && data.length > 0) {
           setClosestPlace(data[0]);
+          setClosestPlaceCoordinates([data[0].lat, data[0].lon]); // Set the coordinates
         }
       } catch (error) {
         console.error('Error fetching closest place:', error);
@@ -82,26 +104,21 @@ const Locations = () => {
     }
   };
 
-  useEffect(() => {
-    getUserLocation();
-  }, []); // Fetch user location on component mount
-
-  useEffect(() => {
-    if (query.trim() !== '') {
-      handleSearch();
-    }
-  }, [query]);
-
-  useEffect(() => {
-    findClosestPlace();
-  }, [userLocation, result]);
+  const handleButtonClick = () => {
+    // Trigger the search or find the closest place when the button is clicked
+    handleSearch();
+  };
 
   return (
     <div>
       <Header />
-      <div className='d-flex flex-column align-items-center justify-content-center vh-100'>
+      <div id='location-container' className='col-md-8 mx-auto'>
         <div>
-          <input type='text' value={query} onChange={(e) => setQuery(e.target.value)} placeholder='Enter location' />
+          <h3>Find the closest place</h3>
+          <label className='text-muted'>Enter your zip code</label>
+          <br />
+          <input type='text' value={query} onChange={(e) => setQuery(e.target.value)} placeholder='zip code' />
+          <button onClick={handleButtonClick}>Search</button>
         </div>
 
         <div>
@@ -127,9 +144,8 @@ const Locations = () => {
             </div>
           )}
         </div>
-        <div id='map'></div>
       </div>
-
+      <div id='map'></div>
       <Footer />
     </div>
   );
