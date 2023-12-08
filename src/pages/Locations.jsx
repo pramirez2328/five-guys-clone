@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
+import 'leaflet/dist/leaflet.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import '../styles/locations.css';
 
 const Locations = () => {
   const [query, setQuery] = useState('');
   const [result, setResult] = useState('');
   const [userLocation, setUserLocation] = useState('');
-  const [zipCode, setZipCode] = useState('');
   const [closestPlace, setClosestPlace] = useState('');
   const fiveGuys = 'five guys ';
 
@@ -36,7 +39,7 @@ const Locations = () => {
             const data = await response.json();
 
             if (data && data.address) {
-              setZipCode(data.address.postcode);
+              setQuery(data.address.postcode);
             }
           } catch (error) {
             console.error('Error fetching user address:', error);
@@ -52,20 +55,24 @@ const Locations = () => {
   };
 
   useEffect(() => {
+    // Create a map and set its initial view
+    const map = L.map('map').setView([51.505, -0.09], 13);
+
+    // Add a tile layer (you may want to replace this with your own tile layer)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+  }, []);
+
+  useEffect(() => {
     getUserLocation();
   }, []);
 
   const findClosestPlace = async () => {
-    console.log(fiveGuys);
-    console.log('query', query);
-    console.log(zipCode);
     if (userLocation && result && result.length > 0) {
       const closestApiUrl = `https://nominatim.openstreetmap.org/search?format=json&q=${fiveGuys}${query}&lat=${userLocation.latitude}&lon=${userLocation.longitude}&limit=1`;
 
       try {
         const response = await fetch(closestApiUrl);
         const data = await response.json();
-        console.log(data);
         if (data && data.length > 0) {
           setClosestPlace(data[0]);
         }
@@ -88,8 +95,6 @@ const Locations = () => {
   useEffect(() => {
     findClosestPlace();
   }, [userLocation, result]);
-
-  console.log('jfkfk', closestPlace);
 
   return (
     <div>
@@ -122,6 +127,7 @@ const Locations = () => {
             </div>
           )}
         </div>
+        <div id='map'></div>
       </div>
 
       <Footer />

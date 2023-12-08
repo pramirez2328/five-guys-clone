@@ -6,7 +6,7 @@ import HeaderOrder from '../components/HeaderOrder';
 import Footer from '../components/Footer';
 import '../styles/checkout.css';
 import { removeItem, updateItem, selectAllOrders, totalCost, removeAllItems } from '../orderSlice';
-import main from '../assets/main.jpg';
+import checkoutImage from '../assets/checkoutImage.png';
 import CheckoutInfo from '../components/CheckoutInfo';
 import Thankyou from '../components/Thankyou';
 import { titles } from '../util/foodTitles';
@@ -38,7 +38,7 @@ const Checkout = () => {
       <div className='w-100'>
         <div>
           <HeaderOrder />
-          <img className='checkout-main-img' src={main} alt='burger' />
+          <img className='checkout-main-img' src={checkoutImage} alt='burger' />
           <div className='w-50 m-auto'>
             <Row>
               <Col>
