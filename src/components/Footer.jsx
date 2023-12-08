@@ -9,16 +9,19 @@ const Footer = () => {
         <Row>
           <Col className='text-center my-5'>
             <h1>FOUR GUYS</h1>
-            <a className='btn btn-social-icon btn-instagram mx-1' href='http://instagram.com/'>
+            <a className='btn btn-social-icon btn-instagram mx-1' href='https://www.instagram.com/fiveguys/?hl=en'>
               <i className='fa fa-instagram' />
             </a>
-            <a className='btn btn-social-icon btn-facebook  mx-1' href='http://www.facebook.com/'>
+            <a className='btn btn-social-icon btn-facebook  mx-1' href='https://www.facebook.com/fiveguys/'>
               <i className='fa fa-facebook' />
             </a>
-            <a className='btn btn-social-icon btn-twitter mx-1' href='http://twitter.com/'>
+            <a className='btn btn-social-icon btn-twitter mx-1' href='https://twitter.com/FiveGuys'>
               <i className='fa fa-twitter' />
             </a>
-            <a className='btn btn-social-icon btn-google mx-1' href='http://youtube.com/'>
+            <a
+              className='btn btn-social-icon btn-google mx-1'
+              href='https://www.youtube.com/channel/UCnPsCURqHlcoRt-Vr7nEaEg'
+            >
               <i className='fa fa-youtube' />
             </a>
           </Col>

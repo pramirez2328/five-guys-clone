@@ -2,8 +2,11 @@ import { Button, Col, Card } from 'reactstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { addIngredient, selectCurrentItem } from '../orderSlice';
 import { useParams } from 'react-router-dom';
+import { useState } from 'react';
+import { disabledItems } from '../util/foodTitles';
 
 const Ingredients = () => {
+  const [disabled, setDisabled] = useState(false);
   const dispatch = useDispatch();
   const paramsId = useParams();
   const id = paramsId['id'].split('_').pop();
@@ -25,6 +28,7 @@ const Ingredients = () => {
       ...currentItem,
       options: newOptions,
     };
+    setDisabled(!disabled);
     dispatch(addIngredient(newCurrent));
   };
 
@@ -34,10 +38,12 @@ const Ingredients = () => {
         <Card className='d-flex justify-content-center align-items-center flex-column p-3' id='card-ingredients'>
           <img className='w-100' src={item.icon} alt={item.title} />
           <h6 className='text-center mt-2'>{item.title}</h6>
+
           <Button
             id='add-button'
             className={`btn ${item.added == false ? 'btn-danger' : 'btn-secondary'} w-100`}
             onClick={() => handleIngredients(item)}
+            disabled={!item.added && disabled && disabledItems[item.title]}
           >
             {item.added == false ? 'ADD' : 'REMOVE'}
           </Button>

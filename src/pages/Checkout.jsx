@@ -7,7 +7,7 @@ import Footer from '../components/Footer';
 import '../styles/checkout.css';
 import { removeItem, updateItem, selectAllOrders, totalCost, removeAllItems } from '../orderSlice';
 import main from '../assets/main.jpg';
-import CheckoutInfo from '../components/checkoutInfo';
+import CheckoutInfo from '../components/CheckoutInfo';
 import Thankyou from '../components/Thankyou';
 import { titles } from '../util/foodTitles';
 
@@ -26,11 +26,12 @@ const Checkout = () => {
     dispatch(updateItem(id));
   };
 
-  const handlePlaceOrder = (orders) => {
+  const handlePlaceOrder = () => {
     setPlaceOrder(!placeOrder);
     setFinalOrder(orders);
     dispatch(removeAllItems([]));
   };
+  console.log(orders);
 
   if (!placeOrder) {
     return (
@@ -84,13 +85,17 @@ const Checkout = () => {
                   <p>Subtotal: {total.toFixed(2)}</p>
                   <p>Tax: {(total * 0.12).toFixed(2)}</p>
                   <p className='fw-bold total-price'>Total: {(total + total * 0.12).toFixed(2)}</p>
+                  {orders.length === 0 && (
+                    // eslint-disable-next-line react/no-unescaped-entities
+                    <p className='text-danger'>You're missing the best burgers in the world, add one to the cart!</p>
+                  )}
                 </div>
               </Col>
             </Row>
 
             <Row>
               <Col>
-                <CheckoutInfo handlePlaceOrder={() => handlePlaceOrder(orders)} />
+                <CheckoutInfo handlePlaceOrder={handlePlaceOrder} finalOrder={orders.length} />
               </Col>
             </Row>
           </div>

@@ -3,8 +3,17 @@ import Ingredients from '../components/Ingredients';
 import HeaderOrder from '../components/HeaderOrder';
 import Footer from '../components/Footer';
 import '../styles/ingredients.css';
+import { useSelector } from 'react-redux';
+import { selectCurrentItem } from '../orderSlice';
+import { useParams } from 'react-router-dom';
+// import { useState } from 'react';
 
 const AddIngredients = () => {
+  const paramsId = useParams();
+  const id = paramsId['id'].split('_').pop();
+  const currentItem = useSelector((state) => selectCurrentItem(state, id));
+  const disabledButton = currentItem.options.filter((i) => i.added);
+
   return (
     <div className='order-container'>
       <Row>
@@ -20,11 +29,14 @@ const AddIngredients = () => {
       <Row className='col-md-9 col-xl-6 m-auto'>
         <Ingredients />
       </Row>
-      <Row id='checkout' className='w-25 m-auto'>
-        <NavLink href='/checkout'>
-          <Button className='btn btn-dark w-100 mb-5'>CHECK OUT</Button>
-        </NavLink>
-      </Row>
+      {disabledButton.length > 0 && (
+        <Row id='checkout' className='w-25 m-auto'>
+          <NavLink href='/checkout'>
+            <Button className='btn btn-dark w-100 mb-5'>CHECK OUT </Button>
+          </NavLink>
+        </Row>
+      )}
+
       <Row>
         <Footer />
       </Row>

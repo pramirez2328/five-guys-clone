@@ -11,13 +11,15 @@ const Thankyou = ({ orders }) => {
         <div>
           <h2 id='thank-you-message'>Thanks for your order!</h2>
           <h5 className='text-center'>You order is on the way!</h5>
-          {orders.map((order) => {
-            return (
-              <p key={order.id} className='text-center text-muted'>
-                <span id='order-item'> Item #{order.itemNumber}</span>: {titles[order.title]}
-              </p>
-            );
-          })}
+          <div className='w-50 m-auto'>
+            {orders.map((order) => {
+              return (
+                <p key={order.id} className='text-muted'>
+                  <span id='order-item'> Item #{order.itemNumber}</span>: {titles[order.title]}
+                </p>
+              );
+            })}
+          </div>
         </div>
       </div>
 
