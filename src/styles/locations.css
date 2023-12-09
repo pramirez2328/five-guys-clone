@@ -15,6 +15,10 @@
   margin-bottom: 2em;
 }
 
+.result-titles {
+  color: var(--color-red);
+}
+
 #map {
   height: 47em;
   width: 100%;

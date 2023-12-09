@@ -10,7 +10,7 @@ const CheckoutInfo = ({ handlePlaceOrder, finalOrder }) => {
       <h4 className='text-muted text-center mt-4 mb-4'>Payment Method</h4>
 
       <form className='row g-3' onSubmit={handleSubmit}>
-        <div className='col-md-12 '>
+        <div className='col-md-10'>
           <div className='col-md-12 d-flex justify-content-end mb-3'>
             <label htmlFor='cardNumber' className='mx-2'>
               Card Number:

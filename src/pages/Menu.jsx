@@ -2,7 +2,7 @@ import { Col, Row, NavLink, Button } from 'reactstrap';
 import Modal from '../components/Modal';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import menuImage from '../assets/menu.png';
+import checkoutImage from '../assets/checkoutImage.png';
 import mobileImage from '../assets/main.jpg';
 import { foodInformation } from '../util/foodInformation';
 import '../styles/menu.css';
@@ -12,7 +12,7 @@ const Menu = () => {
       <Header />
       <Row>
         <Col>
-          <img className='menu-image' src={menuImage} alt='menu' />
+          <img className='menu-image' src={checkoutImage} alt='menu' />
           <img className='mobile-image d-none' src={mobileImage} alt='menu' />
         </Col>
       </Row>

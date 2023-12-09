@@ -6,7 +6,6 @@ import '../styles/ingredients.css';
 import { useSelector } from 'react-redux';
 import { selectCurrentItem } from '../orderSlice';
 import { useParams } from 'react-router-dom';
-// import { useState } from 'react';
 
 const AddIngredients = () => {
   const paramsId = useParams();
