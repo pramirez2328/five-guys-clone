@@ -22,17 +22,16 @@ const Locations = () => {
   useEffect(() => {
     const handleSearch = async () => {
       try {
-        const response = await fetch(
-          `https://nominatim.openstreetmap.org/search?format=json&q=${fiveGuys}${query}&limit=5`
-        );
-        const data = await response.json();
-        setResult(data);
+        if (query) {
+          const response = await fetch(
+            `https://nominatim.openstreetmap.org/search?format=json&q=${fiveGuys}${query}&limit=5`
+          );
+          const data = await response.json();
+          setResult(data);
+        }
       } catch (error) {
         console.error('Error fetching location:', error);
       }
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 3000);
     };
 
     handleSearch();
@@ -51,8 +50,9 @@ const Locations = () => {
             );
             const data = await response.json();
 
-            if (data && data.address) {
+            if (data && data?.address) {
               setQuery(data.address.postcode);
+              setIsLoading(false);
             }
           } catch (error) {
             console.error('Error fetching user address:', error);
@@ -117,8 +117,8 @@ const Locations = () => {
   return (
     <div>
       <Header />
-      <div id='location-container' className='col-md-8 mx-auto px-5'>
-        <div id='location-input'>
+      <div id='location-container' className='col-12'>
+        <div id='location-input' className='col-md-8 mx-auto px-5'>
           <h3 id='search-title'>Find the closest place</h3>
           <label className='text-muted'>Enter zip code</label>
           <br />
@@ -127,38 +127,42 @@ const Locations = () => {
         {isLoading ? (
           <Loading />
         ) : (
-          <div>
-            {result && (
-              <div>
-                <h5 className='result-titles'>Search results:</h5>
-                <h6 className='text-muted'>{result.length} restaurants close to you!</h6>
-                <ul>
-                  {result.map((location) => (
-                    <li key={location.place_id}>{location.display_name.replace('Five Guys, ', '')}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
+          <div className='col-12'>
+            <div className='col-md-8 mx-auto px-5'>
+              {result && (
+                <div>
+                  <h5 className='result-titles'>Search results:</h5>
+                  <h6 className='text-muted'>{result.length} restaurants close to you!</h6>
+                  <ul>
+                    {result.map((location) => (
+                      <li key={location.place_id}>{location.display_name.replace('Five Guys, ', '')}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
-            {closestPlace && (
-              <div className='mb-4'>
-                <h5 className='result-titles'>Closest place:</h5>
-                <p className='mb-1'>Four Guys</p>
-                <p className='mb-0'> - {closestPlace.display_name.replace('Five Guys, ', '')}</p>
-                <a
-                  href={`https://www.google.com/maps/search/?api=1&query=${closestPlace.display_name}`}
-                  target='_blank'
-                  rel='noreferrer'
-                >
-                  Open in Google Maps
-                </a>
-              </div>
-            )}
+              {closestPlace && (
+                <div className='mb-4'>
+                  <h5 className='result-titles'>Closest place:</h5>
+                  <p className='mb-1'>Four Guys</p>
+                  <p className='mb-0'> - {closestPlace.display_name.replace('Five Guys, ', '')}</p>
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${closestPlace.display_name}`}
+                    target='_blank'
+                    rel='noreferrer'
+                  >
+                    Open in Google Maps
+                  </a>
+                </div>
+              )}
+            </div>
+            <div id='map' className=''></div>
           </div>
         )}
       </div>
-      <div id='map'></div>
-      <Footer />
+      <div className='fixed-bottom'>
+        <Footer />
+      </div>
     </div>
   );
 };

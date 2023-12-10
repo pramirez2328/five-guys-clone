@@ -1,19 +1,23 @@
-import { Col, Row, NavLink, Button } from 'reactstrap';
+import { useState } from 'react';
+import { Col, Row, Button } from 'reactstrap';
 import Modal from '../components/Modal';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import checkoutImage from '../assets/checkoutImage.png';
-import mobileImage from '../assets/main.jpg';
+import nutrition1 from '../assets/nutrition1.png';
+import nutrition2 from '../assets/nutrition2.png';
+import nutrition3 from '../assets/nutrition3.png';
 import { foodInformation } from '../util/foodInformation';
+
 import '../styles/menu.css';
 const Menu = () => {
+  const [nutrition, setNutrition] = useState(false);
   return (
     <div className='w-100'>
       <Header />
       <Row>
         <Col>
           <img className='menu-image' src={checkoutImage} alt='menu' />
-          <img className='mobile-image d-none' src={mobileImage} alt='menu' />
         </Col>
       </Row>
       <Row className='text-center mt-5'>
@@ -42,15 +46,21 @@ const Menu = () => {
         })}
 
         <Row>
-          <Col className='d-flex justify-content-center my-5'>
-            <NavLink href='https://www.fiveguys.com/-/media/public-site/files/allergen-ingredients-and-nutrition-info/five-guys-us-nutrition-allergen-guide-february-2023.ashx'>
-              <Button color='danger' className='guide'>
-                Five Guys Ingredient & Allergen Guide
-              </Button>
-            </NavLink>
+          <Col className='d-flex flex-column justify-content-center my-5'>
+            <Button color='danger' className='guide col-md-6 m-auto mb-4' onClick={() => setNutrition(!nutrition)}>
+              Five Guys Ingredient & Allergen Guide
+            </Button>
+            {nutrition && (
+              <>
+                <img src={nutrition1} />
+                <img src={nutrition2} />
+                <img src={nutrition3} />
+              </>
+            )}
           </Col>
         </Row>
       </Row>
+
       <Footer />
     </div>
   );
