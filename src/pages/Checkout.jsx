@@ -38,7 +38,10 @@ const Checkout = () => {
       <div className='w-100'>
         <div>
           <HeaderOrder />
-          <img className='checkout-main-img' src={checkoutImage} alt='burger' />
+          <Row className='subheader-image'>
+            <img className='checkout-main-img' src={checkoutImage} alt='burger' />
+          </Row>
+
           <div className='w-50 m-auto'>
             <Row>
               <Col>

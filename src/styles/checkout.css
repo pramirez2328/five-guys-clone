@@ -17,6 +17,11 @@
   align-items: flex-start;
 }
 
+.food-info button {
+  padding: 1px 12px;
+  font-size: 0.9em;
+}
+
 .food-info p {
   margin: 0;
 }
@@ -34,4 +39,30 @@
 
 .total-price {
   color: var(--color-red);
+}
+.payment-label {
+  font-weight: 900;
+}
+
+@media (max-width: 767px) {
+  .food-info {
+    display: block;
+  }
+
+  .food-info .btn {
+    font-size: 0.8em;
+    padding: 0 10px;
+  }
+
+  #paymentMethod-container div {
+    flex-direction: column !important;
+  }
+
+  .container-fluid {
+    flex-direction: row;
+  }
+
+  .cart-container {
+    order: 3;
+  }
 }

@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className='footer bg-black '>
       <Container>
         <Row>
-          <Col className='text-center my-5'>
+          <Col className='text-center my-4 col-7'>
             <h1>FOUR GUYS</h1>
             <a className='btn btn-social-icon btn-instagram mx-1' href='https://www.instagram.com/fiveguys/?hl=en'>
               <i className='fa fa-instagram' />
@@ -25,12 +25,15 @@ const Footer = () => {
               <i className='fa fa-youtube' />
             </a>
           </Col>
-          <Col className='my-5'>
-            <a href='https://play.google.com/store/apps/details?id=com.fiveguys.olo.android&hl=en_US&pli=1'>
+          <Col className='my-4 col-5'>
+            <a
+              href='https://play.google.com/store/apps/details?id=com.fiveguys.olo.android&hl=en_US&pli=1'
+              className='apps-links'
+            >
               <img id='google-app' src={googleIcon} alt='google icon' />
             </a>
 
-            <a href='https://apps.apple.com/us/app/five-guys-burgers-fries/id457494327'>
+            <a href='https://apps.apple.com/us/app/five-guys-burgers-fries/id457494327' className='apps-links'>
               <img id='appStore-app' src={appStoreIcon} alt='app store icon' />
             </a>
           </Col>

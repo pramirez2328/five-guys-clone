@@ -2,10 +2,8 @@
   color: #ad0101;
 }
 
-.brake-line {
-  margin-top: 3.8rem;
-  padding: 0.5rem;
-  background-color: var(--color-red);
+.subheader-image {
+  margin-top: 4em;
 }
 
 #card img {

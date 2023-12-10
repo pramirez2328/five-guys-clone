@@ -16,7 +16,7 @@ const FoodOptions = () => {
     <Row className='d-flex justify-content-evenly align-items-center w-75 m-auto'>
       {food.map((item) => {
         return (
-          <div key={item.id} id='card' className='p-4 col-sm-6 col-md-4 p-md-3 p-lg-5 mt-4'>
+          <div key={item.id} id='card' className='p-5 col-xs-4 col-sm-6 col-md-4 p-md-3 p-lg-5 mt-4'>
             <Card className='p-3'>
               <CardBody className='text-center'>
                 <CardImg src={item.icon} className='w-100 title' />

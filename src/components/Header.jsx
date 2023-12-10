@@ -12,8 +12,17 @@ function Header() {
     <div className='header'>
       <Navbar expand='md' fixed='top' bg='white'>
         <NavbarToggler onClick={toggle} />
+
+        <NavLink href='/order'>
+          <Button className='order-now' color='danger'>
+            Order Now
+          </Button>
+        </NavLink>
+        <NavbarBrand href='/'>
+          <h1 className='logo'>FOUR GUYS</h1>
+        </NavbarBrand>
         <Collapse className='flex-grow-0' isOpen={isOpen} navbar>
-          <Nav className='me-auto ' navbar>
+          <Nav className='me-auto' navbar>
             <NavItem>
               <NavLink href='/'>Home</NavLink>
             </NavItem>
@@ -25,14 +34,6 @@ function Header() {
             </NavItem>
           </Nav>
         </Collapse>
-        <NavbarBrand href='/'>
-          <h1 className='logo'>FOUR GUYS</h1>
-        </NavbarBrand>
-        <NavLink href='/order'>
-          <Button className='order-now' color='danger'>
-            Order Now
-          </Button>
-        </NavLink>
       </Navbar>
     </div>
   );

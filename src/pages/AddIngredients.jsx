@@ -6,6 +6,7 @@ import '../styles/ingredients.css';
 import { useSelector } from 'react-redux';
 import { selectCurrentItem } from '../orderSlice';
 import { useParams } from 'react-router-dom';
+import checkoutImage from '../assets/checkoutImage.png';
 
 const AddIngredients = () => {
   const paramsId = useParams();
@@ -18,9 +19,10 @@ const AddIngredients = () => {
       <Row>
         <HeaderOrder />
       </Row>
-      <Row className='brake-line' />
-      <Row>{/* <p className='m-0'>ITEM ADDED!</p> */}</Row>
-      <Row id='add-more' className='w-25 m-auto'>
+      <Row className='subheader-image'>
+        <img src={checkoutImage} alt='burger image' />
+      </Row>
+      <Row id='add-more' className='col-6 col-md-3 m-auto'>
         <NavLink href='/order'>
           <Button className='btn btn-danger w-100'>ADD MORE</Button>
         </NavLink>
@@ -29,7 +31,7 @@ const AddIngredients = () => {
         <Ingredients />
       </Row>
       {disabledButton.length > 0 && (
-        <Row id='checkout' className='w-25 m-auto'>
+        <Row id='checkout' className='col-6 col-md-3 m-auto'>
           <NavLink href='/checkout'>
             <Button className='btn btn-dark w-100 mb-5'>CHECK OUT </Button>
           </NavLink>

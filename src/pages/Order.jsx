@@ -2,6 +2,7 @@ import { Row } from 'reactstrap';
 import HeaderOrder from '../components/HeaderOrder';
 import Footer from '../components/Footer';
 import FoodOptions from '../components/FoodOptions';
+import checkoutImage from '../assets/checkoutImage.png';
 import '../styles/order.css';
 
 const Order = () => {
@@ -10,10 +11,9 @@ const Order = () => {
       <Row>
         <HeaderOrder />
       </Row>
-      <Row className='brake-line' />
-      {/* <Row>
-        <p className='m-0'>ITEM ADDED!</p>
-      </Row> */}
+      <Row className='subheader-image'>
+        <img src={checkoutImage} alt='burger image' />
+      </Row>
       <FoodOptions />
       <Row>
         <Footer />
