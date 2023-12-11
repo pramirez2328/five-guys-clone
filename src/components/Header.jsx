@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Collapse, Navbar, NavbarToggler, Nav, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -6,11 +6,28 @@ import '../styles/header.css';
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const node = useRef();
 
   const toggle = () => setIsOpen(!isOpen);
 
+  const handleClickOutside = (e) => {
+    if (node.current.contains(e.target)) {
+      return;
+    }
+
+    setIsOpen(false);
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className='header'>
+    <div className='header' ref={node}>
       <Navbar expand='md' fixed='top' bg='white'>
         <NavbarToggler onClick={toggle} />
 

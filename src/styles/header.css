@@ -19,7 +19,12 @@
 }
 
 .nav-links {
-  width: 30%;
+  width: fit-content;
+}
+
+.nav-item {
+  margin: 0.5em 0;
+  width: fit-content;
 }
 
 .navbar-toggler {
@@ -67,16 +72,10 @@
     flex-direction: row;
   }
 
-  .header-order .container-fluid:nth-child(2) {
-    order: 3;
-  }
-  .header-order .container-fluid:nth-child(3) {
-    order: 2;
-  }
-}
-
-@media (max-width: 428px) {
   .container-fluid .btn.order-now {
     display: none;
   }
+  /* .header-order .container-fluid:nth-child(3) {
+    order: 2;
+  } */
 }

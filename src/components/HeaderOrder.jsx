@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Collapse, Navbar, NavbarToggler, Nav, NavItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { selectAllOrders } from '../orderSlice';
@@ -10,13 +10,31 @@ import '../styles/header.css';
 function HeaderOrder() {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
+  const node = useRef();
+  const handleClickOutside = (e) => {
+    if (node.current.contains(e.target)) {
+      return;
+    }
+
+    setIsOpen(false);
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   let items = useSelector(selectAllOrders);
 
   return (
-    <div className='header-order'>
-      <Navbar expand='md' fixed='top' bg='white'>
+    <div className='header-order' ref={node}>
+      <Navbar expand='md' fixed='top' bg='white' className='pe-3 mx-0'>
         <NavbarToggler onClick={toggle} />
-        <div className='cart-container d-flex justify-content-end align-items-center'>
+
+        <div className='d-flex align-items-center ml-auto'>
           <div id='cart-icon' className='me-3'>
             <img className='w-100' src={cart} alt='cart icon' />
           </div>
@@ -27,7 +45,7 @@ function HeaderOrder() {
         </Link>
 
         <Collapse className='flex-grow-0 nav-links' isOpen={isOpen} navbar>
-          <Nav className='me-auto w-100' navbar>
+          <Nav className='me-0' navbar>
             <NavItem>
               <Link to='/' className='header-links me-4'>
                 Home
