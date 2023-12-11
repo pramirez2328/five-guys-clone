@@ -12,7 +12,7 @@ import { foodInformation } from '../util/foodInformation';
 import '../styles/menu.css';
 const Menu = () => {
   const [nutrition, setNutrition] = useState(false);
-  console.log('rendered');
+
   return (
     <>
       <Header />
@@ -29,7 +29,7 @@ const Menu = () => {
           </h6>
         </Col>
       </Row>
-      <Row className='container m-auto mt-5'>
+      <Row className='container m-auto mt-5 d-flex flex-column align-items-center'>
         {foodInformation.map((item) => {
           return (
             <Col
@@ -46,23 +46,21 @@ const Menu = () => {
           );
         })}
 
-        <Row>
-          <Col className='d-flex flex-column justify-content-center align-items-center mt-5'>
-            <Button
-              color='danger'
-              className='guide col- 12 col-md-6 m-auto mb-4'
-              onClick={() => setNutrition(!nutrition)}
-            >
-              Five Guys Ingredient & Allergen Guide
-            </Button>
-            {nutrition && (
-              <>
-                <img src={nutrition1} />
-                <img src={nutrition2} />
-                <img src={nutrition3} />
-              </>
-            )}
-          </Col>
+        <Row className='d-flex flex-column justify-content-center align-items-center mt-5'>
+          <Button
+            color='danger'
+            className='guide col- 12 col-md-6 m-auto mb-4'
+            onClick={() => setNutrition(!nutrition)}
+          >
+            Five Guys Ingredient & Allergen Guide
+          </Button>
+          {nutrition && (
+            <>
+              <img src={nutrition1} />
+              <img src={nutrition2} />
+              <img src={nutrition3} />
+            </>
+          )}
         </Row>
       </Row>
 

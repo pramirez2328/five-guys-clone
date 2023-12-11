@@ -54,4 +54,8 @@
     width: 9rem;
     height: 7rem;
   }
+
+  .guide {
+    margin-left: 2em;
+  }
 }
