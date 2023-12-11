@@ -1,11 +1,15 @@
-// NotFound.jsx
+import Footer from '../components/Footer';
 
 const NotFound = () => {
   return (
     <div>
-      <h1>404 - Not Found</h1>
-      <p>Oops! The page you are looking for does not exist.</p>
-      {/* Add more content or styling as needed */}
+      <div className='d-flex flex-column align-items-center justify-content-center vh-100 col-12'>
+        <h1>404 - Not Found</h1>
+        <p>Oops! The page you are looking for does not exist.</p>
+      </div>
+      <div className='fixed-bottom'>
+        <Footer />
+      </div>
     </div>
   );
 };

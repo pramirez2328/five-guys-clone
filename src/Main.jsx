@@ -18,27 +18,27 @@ import './common.css';
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/four-guys',
     element: <Home />,
   },
   {
-    path: '/locations',
+    path: '/four-guys/locations',
     element: <Locations />,
   },
   {
-    path: '/menu',
+    path: '/four-guys/menu',
     element: <Menu />,
   },
   {
-    path: '/order',
+    path: '/four-guys/order',
     element: <Order />,
   },
   {
-    path: '/order/:id',
+    path: '/four-guys/order/:id',
     element: <AddIngredients />,
   },
   {
-    path: '/checkout',
+    path: '/four-guys/checkout',
     element: <Checkout />,
   },
   {
