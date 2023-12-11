@@ -23,7 +23,7 @@
 }
 
 .nav-item {
-  margin: 0.5em 0;
+  margin: 1.4em 0;
   width: fit-content;
 }
 
@@ -51,6 +51,7 @@
 .container-fluid {
   display: flex;
   flex-direction: row-reverse;
+  margin: 0;
 }
 
 @media (max-width: 430px) {

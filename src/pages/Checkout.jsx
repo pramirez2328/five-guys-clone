@@ -69,7 +69,7 @@ const Checkout = () => {
                     <div className='food-info'>
                       <div className='d-flex w-50 justify-content-between'>
                         <p>
-                          <span className='title-info'>{titles[order.title]}</span>
+                          <span className='title-info me-2'>{titles[order.title]}</span>
                         </p>
                         <p>${order.price}</p>
                       </div>

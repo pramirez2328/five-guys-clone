@@ -14,7 +14,7 @@ const Menu = () => {
   const [nutrition, setNutrition] = useState(false);
   console.log('rendered');
   return (
-    <div className='w-100'>
+    <>
       <Header />
       <Row>
         <Col>
@@ -47,8 +47,12 @@ const Menu = () => {
         })}
 
         <Row>
-          <Col className='d-flex flex-column justify-content-center my-5'>
-            <Button color='danger' className='guide col-md-6 m-auto mb-4' onClick={() => setNutrition(!nutrition)}>
+          <Col className='d-flex flex-column justify-content-center align-items-center mt-5'>
+            <Button
+              color='danger'
+              className='guide col- 12 col-md-6 m-auto mb-4'
+              onClick={() => setNutrition(!nutrition)}
+            >
               Five Guys Ingredient & Allergen Guide
             </Button>
             {nutrition && (
@@ -63,7 +67,7 @@ const Menu = () => {
       </Row>
 
       <Footer />
-    </div>
+    </>
   );
 };
 
