@@ -30,11 +30,11 @@ const router = createBrowserRouter([
     element: <Menu />,
   },
   {
-    path: '/four-guys/order',
+    path: '/four-guys/orders',
     element: <Order />,
   },
   {
-    path: '/four-guys/order/:id',
+    path: '/four-guys/orders/:id',
     element: <AddIngredients />,
   },
   {
