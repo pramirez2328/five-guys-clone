@@ -59,7 +59,7 @@ const Checkout = () => {
                         <Button className='btn btn-danger me-3' onClick={() => handleRemove(order.id)}>
                           Remove
                         </Button>
-                        <Link to={`/four-guys/orders/${order.title.toLowerCase()}_${order.id}`}>
+                        <Link to={`/four-guys/order/${order.title.toLowerCase()}_${order.id}`}>
                           <Button className='btn btn-warning' onClick={() => handleUpdated(order.id)}>
                             Update
                           </Button>

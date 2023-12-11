@@ -23,7 +23,7 @@ const AddIngredients = () => {
         <img src={checkoutImage} alt='burger image' />
       </Row>
       <Row id='add-more' className='col-6 col-md-3 m-auto'>
-        <NavLink href='/four-guys/orders'>
+        <NavLink href='/four-guys/order'>
           <Button className='btn btn-danger w-100'>ADD MORE</Button>
         </NavLink>
       </Row>

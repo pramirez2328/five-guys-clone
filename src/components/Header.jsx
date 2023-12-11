@@ -13,7 +13,7 @@ function Header() {
       <Navbar expand='md' fixed='top' bg='white'>
         <NavbarToggler onClick={toggle} />
 
-        <NavLink href='/four-guys/orders'>
+        <NavLink href='/four-guys/order'>
           <Button className='order-now' color='danger'>
             Order Now
           </Button>
