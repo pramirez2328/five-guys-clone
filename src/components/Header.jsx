@@ -19,14 +19,20 @@ function Header() {
             Order Now
           </Button>
         </Link>
-        <Link to='/'>
+        <Link to='/' className='header-links mt-2'>
           <h1 className='logo'>FOUR GUYS</h1>
         </Link>
         <Collapse className='flex-grow-0' isOpen={isOpen} navbar>
           <Nav className='me-auto' navbar>
-            <Link to='/'>Home</Link>
-            <Link to='/menu'>Menu</Link>
-            <Link to='/locations'>Locations</Link>
+            <Link to='/' className='header-links me-4'>
+              Home
+            </Link>
+            <Link to='/menu' className='header-links me-4'>
+              Menu
+            </Link>
+            <Link to='/locations' className='header-links'>
+              Locations
+            </Link>
           </Nav>
         </Collapse>
       </Navbar>

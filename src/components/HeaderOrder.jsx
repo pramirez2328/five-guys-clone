@@ -22,20 +22,26 @@ function HeaderOrder() {
           </div>
           <h4 className='mt-2 me-3'>{items.length}</h4>
         </div>
-        <Link to='/' className='mx-2'>
+        <Link to='/' className='header-links mt-2'>
           <h1 className='logo'>FOUR GUYS</h1>
         </Link>
 
         <Collapse className='flex-grow-0 nav-links' isOpen={isOpen} navbar>
           <Nav className='me-auto w-100' navbar>
             <NavItem>
-              <Link to='/'>Home</Link>
+              <Link to='/' className='header-links me-4'>
+                Home
+              </Link>
             </NavItem>
             <NavItem>
-              <Link to='/menu'>Menu</Link>
+              <Link to='/menu' className='header-links me-4'>
+                Menu
+              </Link>
             </NavItem>
             <NavItem>
-              <Link to='/locations'>Locations</Link>
+              <Link to='/locations' className='header-links'>
+                Locations
+              </Link>
             </NavItem>
           </Nav>
         </Collapse>
