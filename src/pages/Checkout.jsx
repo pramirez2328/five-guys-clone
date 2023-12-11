@@ -31,7 +31,6 @@ const Checkout = () => {
     setFinalOrder(orders);
     dispatch(removeAllItems([]));
   };
-  console.log(orders);
 
   if (!placeOrder) {
     return (
