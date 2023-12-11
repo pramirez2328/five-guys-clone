@@ -23,7 +23,7 @@ const AddIngredients = () => {
         <img src={checkoutImage} alt='burger image' />
       </Row>
       <Row id='add-more' className='col-6 col-md-3 m-auto'>
-        <NavLink href='/order'>
+        <NavLink href='/four-guys/order'>
           <Button className='btn btn-danger w-100'>ADD MORE</Button>
         </NavLink>
       </Row>
@@ -32,7 +32,7 @@ const AddIngredients = () => {
       </Row>
       {disabledButton.length > 0 && (
         <Row id='checkout' className='col-6 col-md-3 m-auto'>
-          <NavLink href='/checkout'>
+          <NavLink href='/four-guys/checkout'>
             <Button className='btn btn-dark w-100 mb-5'>CHECK OUT </Button>
           </NavLink>
         </Row>

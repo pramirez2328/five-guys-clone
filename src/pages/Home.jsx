@@ -13,7 +13,7 @@ const Home = () => {
           <h1 className='text-light'>BURGERS & FRIES</h1>
           <h3 className='text-light  text-center'>since 1986</h3>
           <div className='d-flex justify-content-center'>
-            <NavLink href='/order'>
+            <NavLink href='/four-guys/order'>
               <Button className='order-now' color='danger'>
                 Order Now
               </Button>

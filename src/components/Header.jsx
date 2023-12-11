@@ -13,24 +13,24 @@ function Header() {
       <Navbar expand='md' fixed='top' bg='white'>
         <NavbarToggler onClick={toggle} />
 
-        <NavLink href='/order'>
+        <NavLink href='/four-guys/order'>
           <Button className='order-now' color='danger'>
             Order Now
           </Button>
         </NavLink>
-        <NavbarBrand href='/'>
+        <NavbarBrand href='/four-guys'>
           <h1 className='logo'>FOUR GUYS</h1>
         </NavbarBrand>
         <Collapse className='flex-grow-0' isOpen={isOpen} navbar>
           <Nav className='me-auto' navbar>
             <NavItem>
-              <NavLink href='/'>Home</NavLink>
+              <NavLink href='/four-guys/'>Home</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href='/menu'>Menu</NavLink>
+              <NavLink href='/four-guys/menu'>Menu</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href='/locations'>Locations</NavLink>
+              <NavLink href='/four-guys/locations'>Locations</NavLink>
             </NavItem>
           </Nav>
         </Collapse>

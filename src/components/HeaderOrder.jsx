@@ -28,13 +28,13 @@ function HeaderOrder() {
         <Collapse className='flex-grow-0 nav-links' isOpen={isOpen} navbar>
           <Nav className='me-auto w-100' navbar>
             <NavItem>
-              <NavLink href='/'>Home</NavLink>
+              <NavLink href='/four-guys/'>Home</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href='/menu'>Menu</NavLink>
+              <NavLink href='/four-guys/menu'>Menu</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href='/locations'>Locations</NavLink>
+              <NavLink href='/four-guys/locations'>Locations</NavLink>
             </NavItem>
           </Nav>
         </Collapse>
