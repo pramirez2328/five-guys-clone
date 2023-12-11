@@ -5,6 +5,7 @@ import Locations from './pages/Locations';
 import Menu from './pages/Menu';
 import AddIngredients from './pages/AddIngredients';
 import Checkout from './pages/Checkout';
+import NotFound from './pages/NotFound'; // Import the NotFound component
 import { store } from './store';
 import { Provider } from 'react-redux';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
   {
     path: '/checkout',
     element: <Checkout />,
+  },
+  {
+    path: '*',
+    element: <NotFound />,
   },
 ]);
 
