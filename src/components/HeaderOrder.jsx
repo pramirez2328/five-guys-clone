@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavLink, NavItem } from 'reactstrap';
+import { Collapse, Navbar, NavbarToggler, Nav, NavItem } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import { selectAllOrders } from '../orderSlice';
 import { useSelector } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -21,20 +22,20 @@ function HeaderOrder() {
           </div>
           <h4 className='mt-2 me-3'>{items.length}</h4>
         </div>
-        <NavbarBrand href='/four-guys/' className='mx-2'>
+        <Link to='/' className='mx-2'>
           <h1 className='logo'>FOUR GUYS</h1>
-        </NavbarBrand>
+        </Link>
 
         <Collapse className='flex-grow-0 nav-links' isOpen={isOpen} navbar>
           <Nav className='me-auto w-100' navbar>
             <NavItem>
-              <NavLink href='/four-guys/'>Home</NavLink>
+              <Link to='/'>Home</Link>
             </NavItem>
             <NavItem>
-              <NavLink href='/four-guys/menu'>Menu</NavLink>
+              <Link to='/menu'>Menu</Link>
             </NavItem>
             <NavItem>
-              <NavLink href='/four-guys/locations'>Locations</NavLink>
+              <Link to='/locations'>Locations</Link>
             </NavItem>
           </Nav>
         </Collapse>

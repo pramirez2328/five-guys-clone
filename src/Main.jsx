@@ -1,9 +1,9 @@
-import ReactDOM from 'react-dom';
-import { HashRouter, Routes, Route } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
-import { persistStore } from 'redux-persist';
+import * as ReactDOM from 'react-dom/client';
 import { store } from './store';
+import { Provider } from 'react-redux';
+import { HashRouter, Route, Routes } from 'react-router-dom';
+import { persistStore } from 'redux-persist';
+import { PersistGate } from 'redux-persist/integration/react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-social/bootstrap-social.css';
 import 'font-awesome/css/font-awesome.css';
@@ -19,26 +19,20 @@ import NotFound from './pages/NotFound';
 
 let persistor = persistStore(store);
 
-// eslint-disable-next-line react-refresh/only-export-components
-const App = () => (
+ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <PersistGate persistor={persistor}>
-      <HashRouter basename='/four-guys' future={{ v7_startTransition: true }}>
+      <HashRouter>
         <Routes>
-          {/* Define your routes here using the Route component */}
-          <Route path='/four-guys' element={<Home />} />
-          <Route path='/four-guys/locations' element={<Locations />} />
-          <Route path='/four-guys/menu' element={<Menu />} />
-          <Route path='/four-guys/order' element={<Order />} />
-          <Route path='/four-guys/order/:id' element={<AddIngredients />} />
-          <Route path='/four-guys/checkout' element={<Checkout />} />
-          <Route path='*' element={<NotFound />} />
+          <Route exact path='/' element={<Home />} />
+          <Route exact path='/locations' element={<Locations />} />
+          <Route exact path='/menu' element={<Menu />} />
+          <Route path='/order' element={<Order />} />
+          <Route exact path='/order/:id' element={<AddIngredients />} />
+          <Route exact path='/checkout' element={<Checkout />} />
+          <Route exact path='*' element={<NotFound />} />
         </Routes>
       </HashRouter>
     </PersistGate>
   </Provider>
 );
-
-const rootElement = document.getElementById('root');
-
-ReactDOM.createRoot(rootElement).render(<App />);

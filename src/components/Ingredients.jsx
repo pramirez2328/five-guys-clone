@@ -1,16 +1,22 @@
 import { Button, Col, Card } from 'reactstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { addIngredient, selectCurrentItem } from '../orderSlice';
+import { addIngredient, selectCurrentItem, selectCurrentItemUpdated } from '../orderSlice';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { disabledItems } from '../util/foodTitles';
 
 const Ingredients = () => {
-  const [disabled, setDisabled] = useState(false);
-  const dispatch = useDispatch();
   const paramsId = useParams();
   const id = paramsId['id'].split('_').pop();
-  const currentItem = useSelector((state) => selectCurrentItem(state, id));
+  const [disabled, setDisabled] = useState(id.includes('update'));
+  const dispatch = useDispatch();
+
+  const currentItem = useSelector((state) => {
+    if (id.includes('update')) {
+      return selectCurrentItemUpdated(state, id.replace('update', ''));
+    }
+    return selectCurrentItem(state, id);
+  });
 
   const handleIngredients = (currentIngredient) => {
     const tempOptions = currentItem.options.filter((i) => i.id !== currentIngredient.id);

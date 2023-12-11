@@ -33,7 +33,7 @@ const ordersSlice = createSlice({
 });
 
 export const ordersReducer = ordersSlice.reducer;
-export const { addItem, removeItem, updateItem, addIngredient, removeAllItems } = ordersSlice.actions;
+export const { addItem, removeItem, addIngredient, removeAllItems } = ordersSlice.actions;
 
 export const selectAllOrders = (state) => {
   return state.orders.ordersArray;
@@ -41,6 +41,11 @@ export const selectAllOrders = (state) => {
 
 export const selectCurrentItem = (state, id) => {
   const current = state.orders.ordersArray.find((i) => i.id == id);
+  return current;
+};
+
+export const selectCurrentItemUpdated = (state, id) => {
+  const current = state.orders.ordersArray.find((i) => i.itemNumber == id);
   return current;
 };
 

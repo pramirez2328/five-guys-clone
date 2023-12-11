@@ -1,6 +1,7 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { Button, NavLink } from 'reactstrap';
+import { Button } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import '../styles/home.css';
 
 const Home = () => {
@@ -13,11 +14,11 @@ const Home = () => {
           <h1 className='text-light'>BURGERS & FRIES</h1>
           <h3 className='text-light  text-center'>since 1986</h3>
           <div className='d-flex justify-content-center'>
-            <NavLink href='/four-guys/order'>
+            <Link to='/order'>
               <Button className='order-now' color='danger'>
                 Order Now
               </Button>
-            </NavLink>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavLink, NavItem, Button } from 'reactstrap';
+import { Collapse, Navbar, NavbarToggler, Nav, Button } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/header.css';
 
@@ -13,25 +14,19 @@ function Header() {
       <Navbar expand='md' fixed='top' bg='white'>
         <NavbarToggler onClick={toggle} />
 
-        <NavLink href='/four-guys/order'>
+        <Link to='/order'>
           <Button className='order-now' color='danger'>
             Order Now
           </Button>
-        </NavLink>
-        <NavbarBrand href='/four-guys'>
+        </Link>
+        <Link to='/'>
           <h1 className='logo'>FOUR GUYS</h1>
-        </NavbarBrand>
+        </Link>
         <Collapse className='flex-grow-0' isOpen={isOpen} navbar>
           <Nav className='me-auto' navbar>
-            <NavItem>
-              <NavLink href='/four-guys/'>Home</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href='/four-guys/menu'>Menu</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href='/four-guys/locations'>Locations</NavLink>
-            </NavItem>
+            <Link to='/'>Home</Link>
+            <Link to='/menu'>Menu</Link>
+            <Link to='/locations'>Locations</Link>
           </Nav>
         </Collapse>
       </Navbar>

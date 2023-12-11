@@ -12,6 +12,7 @@ import { foodInformation } from '../util/foodInformation';
 import '../styles/menu.css';
 const Menu = () => {
   const [nutrition, setNutrition] = useState(false);
+  console.log('rendered');
   return (
     <div className='w-100'>
       <Header />

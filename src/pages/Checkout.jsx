@@ -2,14 +2,15 @@ import { useState } from 'react';
 import { Col, Row, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { removeItem, selectAllOrders, totalCost, removeAllItems } from '../orderSlice';
+import { titles } from '../util/foodTitles';
+import '../styles/checkout.css';
+
 import HeaderOrder from '../components/HeaderOrder';
 import Footer from '../components/Footer';
-import '../styles/checkout.css';
-import { removeItem, updateItem, selectAllOrders, totalCost, removeAllItems } from '../orderSlice';
 import checkoutImage from '../assets/checkoutImage.png';
 import CheckoutInfo from '../components/CheckoutInfo';
 import Thankyou from '../components/Thankyou';
-import { titles } from '../util/foodTitles';
 
 const Checkout = () => {
   const [placeOrder, setPlaceOrder] = useState(false);
@@ -22,9 +23,28 @@ const Checkout = () => {
     dispatch(removeItem(id));
   };
 
-  const handleUpdated = (id) => {
-    dispatch(updateItem(id));
-  };
+  // const handleUpdated = (id) => {
+  //   const handleIngredients = (currentIngredient) => {
+  //     const tempOptions = currentItem.options.filter((i) => i.id !== currentIngredient.id);
+  //     const newOptions = [...tempOptions, { ...currentIngredient, added: !currentIngredient.added }];
+  //     newOptions.sort((a, b) => {
+  //       if (a.id < b.id) {
+  //         return -1;
+  //       }
+  //       if (a.id > b.id) {
+  //         return 1;
+  //       }
+  //       return 0;
+  //     });
+  //     const newCurrent = {
+  //       ...currentItem,
+  //       options: newOptions,
+  //     };
+  //     setDisabled(!disabled);
+  //     dispatch(addIngredient(newCurrent));
+  //   };
+  //   dispatch(updateItem(id));
+  // };
 
   const handlePlaceOrder = () => {
     setPlaceOrder(!placeOrder);
@@ -58,10 +78,8 @@ const Checkout = () => {
                         <Button className='btn btn-danger me-3' onClick={() => handleRemove(order.id)}>
                           Remove
                         </Button>
-                        <Link to={`/four-guys/order/${order.title.toLowerCase()}_${order.id}`}>
-                          <Button className='btn btn-warning' onClick={() => handleUpdated(order.id)}>
-                            Update
-                          </Button>
+                        <Link to={`/order/${order.title.toLowerCase()}_${order.itemNumber}update`}>
+                          <Button className='btn btn-warning'>Update</Button>
                         </Link>
                       </div>
                     </div>
