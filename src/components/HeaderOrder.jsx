@@ -21,7 +21,7 @@ function HeaderOrder() {
           </div>
           <h4 className='mt-2 me-3'>{items.length}</h4>
         </div>
-        <NavbarBrand href='/' className='mx-2'>
+        <NavbarBrand href='/four-guys/' className='mx-2'>
           <h1 className='logo'>FOUR GUYS</h1>
         </NavbarBrand>
 
