@@ -1,6 +1,5 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { persistStore } from 'redux-persist';
@@ -20,10 +19,11 @@ import NotFound from './pages/NotFound';
 
 let persistor = persistStore(store);
 
+// eslint-disable-next-line react-refresh/only-export-components
 const App = () => (
   <Provider store={store}>
     <PersistGate persistor={persistor}>
-      <Router>
+      <HashRouter basename='/four-guys' future={{ v7_startTransition: true }}>
         <Routes>
           {/* Define your routes here using the Route component */}
           <Route path='/four-guys' element={<Home />} />
@@ -34,7 +34,7 @@ const App = () => (
           <Route path='/four-guys/checkout' element={<Checkout />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
-      </Router>
+      </HashRouter>
     </PersistGate>
   </Provider>
 );
