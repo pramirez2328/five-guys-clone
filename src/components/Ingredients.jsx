@@ -1,14 +1,15 @@
+import { useParams } from 'react-router-dom';
+import { useState } from 'react';
 import { Button, Col, Card } from 'reactstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { addIngredient, selectCurrentItem, selectCurrentItemUpdated } from '../orderSlice';
-import { useParams } from 'react-router-dom';
-import { useState } from 'react';
 import { disabledItems } from '../util/foodTitles';
 
-const Ingredients = () => {
+const Ingredients = ({ handleBanner }) => {
   const paramsId = useParams();
   const id = paramsId['id'].split('_').pop();
   const [disabled, setDisabled] = useState(id.includes('update'));
+
   const dispatch = useDispatch();
 
   const currentItem = useSelector((state) => {
@@ -21,6 +22,7 @@ const Ingredients = () => {
   const handleIngredients = (currentIngredient) => {
     const tempOptions = currentItem.options.filter((i) => i.id !== currentIngredient.id);
     const newOptions = [...tempOptions, { ...currentIngredient, added: !currentIngredient.added }];
+
     newOptions.sort((a, b) => {
       if (a.id < b.id) {
         return -1;
@@ -34,8 +36,10 @@ const Ingredients = () => {
       ...currentItem,
       options: newOptions,
     };
+
     setDisabled(!disabled);
     dispatch(addIngredient(newCurrent));
+    handleBanner(currentIngredient.title, currentIngredient.added, currentIngredient.icon);
   };
 
   return currentItem.options.map((item) => {

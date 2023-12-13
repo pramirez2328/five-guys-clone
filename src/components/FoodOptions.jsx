@@ -2,10 +2,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Row, Card, CardBody, Button, CardImg, CardTitle, CardText } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { selectAllFood } from '../foodSlice';
-import { addItem } from '../orderSlice';
+import { addItem, selectAllOrders } from '../orderSlice';
 
 const FoodOptions = () => {
   const food = useSelector(selectAllFood);
+  const orders = useSelector(selectAllOrders);
   const dispatch = useDispatch();
   const handleAddItem = (id, title, price, options) => {
     const newItem = { id, title, price, options };
@@ -23,7 +24,7 @@ const FoodOptions = () => {
                 <CardTitle className='title mt-2'>{item.title}</CardTitle>
                 <CardText className='price b'>$ {item.price}</CardText>
               </CardBody>
-              <Link to={`/order/${item.title.toLowerCase()}_${item.id}`}>
+              <Link to={`/order/${item.title.toLowerCase()}_${item.id}_${orders.length + 1}`}>
                 <Button
                   className='btn btn-danger w-100'
                   onClick={() => handleAddItem(item.id, item.title, item.price, item.options)}

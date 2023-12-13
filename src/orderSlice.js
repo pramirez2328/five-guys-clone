@@ -21,8 +21,8 @@ const ordersSlice = createSlice({
       state.ordersArray = newArr;
     },
     addIngredient: (state, action) => {
-      const id = action.payload.id;
-      const tempArr = state.ordersArray.filter((i) => i.id !== id);
+      const itemNumber = action.payload.itemNumber;
+      const tempArr = state.ordersArray.filter((i) => i.itemNumber !== itemNumber);
       state.ordersArray = [...tempArr, action.payload];
     },
     removeAllItems: (state, action) => {
@@ -40,7 +40,8 @@ export const selectAllOrders = (state) => {
 };
 
 export const selectCurrentItem = (state, id) => {
-  const current = state.orders.ordersArray.find((i) => i.id == id);
+  const current = state.orders.ordersArray.find((i) => i.itemNumber == id);
+
   return current;
 };
 

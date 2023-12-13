@@ -19,3 +19,12 @@ export const disabledItems = {
   Strawberry: true,
   Chocolate: true,
 };
+
+export const titleOptions = {
+  BURGERS: false,
+  DOGS: false,
+  DRINKS: true,
+  FRIES: true,
+  MILKSHAKES: true,
+  SANDWICHES: false,
+};

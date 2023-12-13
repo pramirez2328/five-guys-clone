@@ -31,12 +31,12 @@ function Header() {
       <Navbar expand='md' fixed='top' bg='white' className='m-0'>
         <NavbarToggler onClick={toggle} />
 
-        <Link to='/order'>
-          <Button className='order-now' color='danger'>
+        <Link to='/order' className='cart'>
+          <Button className='order-now' color='danger '>
             Order Now
           </Button>
         </Link>
-        <Link to='/' className='header-links mt-2 me-4'>
+        <Link to='/' className='header-links mt-2 me-4 logo'>
           <h1 className='logo'>FOUR GUYS</h1>
         </Link>
         <Collapse className='flex-grow-0' isOpen={isOpen} navbar>
