@@ -17,34 +17,11 @@ const Checkout = () => {
   const [finalOrder, setFinalOrder] = useState([]);
   const orders = useSelector(selectAllOrders);
   const dispatch = useDispatch();
-
   const total = useSelector(totalCost);
+
   const handleRemove = (id) => {
     dispatch(removeItem(id));
   };
-
-  // const handleUpdated = (id) => {
-  //   const handleIngredients = (currentIngredient) => {
-  //     const tempOptions = currentItem.options.filter((i) => i.id !== currentIngredient.id);
-  //     const newOptions = [...tempOptions, { ...currentIngredient, added: !currentIngredient.added }];
-  //     newOptions.sort((a, b) => {
-  //       if (a.id < b.id) {
-  //         return -1;
-  //       }
-  //       if (a.id > b.id) {
-  //         return 1;
-  //       }
-  //       return 0;
-  //     });
-  //     const newCurrent = {
-  //       ...currentItem,
-  //       options: newOptions,
-  //     };
-  //     setDisabled(!disabled);
-  //     dispatch(addIngredient(newCurrent));
-  //   };
-  //   dispatch(updateItem(id));
-  // };
 
   const handlePlaceOrder = () => {
     setPlaceOrder(!placeOrder);
@@ -75,7 +52,7 @@ const Checkout = () => {
                       </div>
 
                       <div>
-                        <Button className='btn btn-danger me-3' onClick={() => handleRemove(order.id)}>
+                        <Button className='btn btn-danger me-3' onClick={() => handleRemove(order.itemNumber)}>
                           Remove
                         </Button>
                         <Link to={`/order/${order.title.toLowerCase()}_${order.itemNumber}update`}>

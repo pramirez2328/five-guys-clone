@@ -17,7 +17,7 @@ const ordersSlice = createSlice({
     },
     removeItem: (state, action) => {
       const id = action.payload;
-      const newArr = state.ordersArray.filter((i) => i.id !== id);
+      const newArr = state.ordersArray.filter((i) => i.itemNumber !== id);
       state.ordersArray = newArr;
     },
     addIngredient: (state, action) => {
