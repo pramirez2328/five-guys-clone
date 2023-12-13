@@ -30,15 +30,21 @@ function Header() {
     <div className='header' ref={node}>
       <Navbar expand='md' fixed='top' bg='white' className='m-0'>
         <NavbarToggler onClick={toggle} />
+        {/*how to prevent the logo to go to next lin if the screen is too small*/}
 
-        <Link to='/order' className='cart'>
-          <Button className='order-now' color='danger '>
-            Order Now
-          </Button>
-        </Link>
-        <Link to='/' className='header-links mt-2 me-4 logo'>
-          <h1 className='logo'>FOUR GUYS</h1>
-        </Link>
+        <div>
+          <Link to='/order' className='cart'>
+            <Button className='order-now' color='danger '>
+              Order Now
+            </Button>
+          </Link>
+        </div>
+        <div className='d-flex flex-column align-content-center'>
+          <Link to='/' className='header-links mt-2 me-4 logo'>
+            <h1 className='logo'>FOUR GUYS</h1>
+          </Link>
+        </div>
+
         <Collapse className='flex-grow-0' isOpen={isOpen} navbar>
           <Nav className='me-auto' navbar>
             <NavItem>

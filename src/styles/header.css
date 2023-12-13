@@ -14,11 +14,13 @@
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
+  grid-auto-flow: column;
 }
 
 .header nav .container-fluid > .logo {
   order: 2;
 }
+
 .header nav .container-fluid > .cart {
   order: 3;
 }
@@ -93,11 +95,12 @@
 }
 
 @media (max-width: 767px) {
-  .container-fluid {
-    flex-direction: row;
+  .header nav .container-fluid {
+    display: flex;
+    justify-content: space-between;
   }
 
-  .container-fluid .btn.order-now {
+  .header nav .container-fluid div > .cart {
     display: none;
   }
 

@@ -41,6 +41,7 @@ const AddIngredients = () => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleBanner = (title, added, icon) => {
@@ -51,7 +52,7 @@ const AddIngredients = () => {
     const timer = setTimeout(() => {
       setBanner(false);
       clearTimeout(timer);
-    }, 3000);
+    }, 2500);
   };
 
   const disabledButton = currentItem.options.filter((i) => i.added);
