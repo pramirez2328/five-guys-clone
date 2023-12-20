@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Loading from '../components/Loading';
 import '../styles/locations.css';
+import icon from '../assets/myIcon.png';
 
 const Locations = () => {
   const [query, setQuery] = useState('');
@@ -101,9 +102,14 @@ const Locations = () => {
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       }).addTo(map);
 
-      // Add a marker for the closest place when the coordinates are available
+      var myIcon = L.icon({
+        iconUrl: icon,
+        iconSize: [45, 45],
+        iconAnchor: [22, 94],
+        popupAnchor: [-3, -76],
+      });
       if (closestPlaceCoordinates) {
-        L.marker(closestPlaceCoordinates).addTo(map);
+        L.marker(closestPlaceCoordinates, { icon: myIcon }).addTo(map);
       }
 
       return () => {
