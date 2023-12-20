@@ -57,8 +57,6 @@ const AddIngredients = () => {
 
   const disabledButton = currentItem.options.filter((i) => i.added);
 
-  console.log(banner);
-
   return (
     <div className='order-container'>
       <Row>

@@ -26,7 +26,6 @@ const ordersSlice = createSlice({
       state.ordersArray = [...tempArr, action.payload];
     },
     removeAllItems: (state, action) => {
-      console.log(action.payload);
       state.ordersArray = action.payload;
     },
   },
