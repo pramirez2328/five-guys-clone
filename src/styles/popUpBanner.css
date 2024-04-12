@@ -16,4 +16,5 @@
   border: 1px solid var(--color-red);
   padding: 1em;
   background-color: var(--color-white);
+  border: none;
 }

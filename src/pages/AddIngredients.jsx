@@ -66,8 +66,9 @@ const AddIngredients = () => {
         <img src={checkoutImage} alt='burger image' />
       </Row>
       <Row className='col-10 col-md-6 m-auto'>
-        <div ref={node}>
-          <PopUpBanner message={banner} title={ingredient} added={added} icon={icon} setMessage={setBanner} />
+        <div className={`${banner && 'overlay'}`}></div>
+        <div ref={node} className='banner'>
+          <PopUpBanner message={banner} title={ingredient} added={added} icon={icon} />
         </div>
       </Row>
       <Row id='add-more' className='col-6 col-md-3 m-auto'>
